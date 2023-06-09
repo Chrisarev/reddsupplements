@@ -1,0 +1,37 @@
+.productsPanel{
+    display:flex;
+    flex-wrap:wrap; 
+    gap:1rem;
+    width:100%; 
+}
+.productsPanel a{
+    text-decoration: none; /* no underline */
+    color:black;
+}
+.product{
+    display:flex;
+    flex-direction: column;
+    border:1px solid lightgray;
+    max-height:25rem;
+    max-width:20rem;
+    border-radius:7px; 
+    padding:1rem
+}
+.product img{
+    width:100%; 
+    padding:0;
+    margin:0;
+}
+
+.product h2{
+    padding:0;
+    margin:0;
+}
+.product p{
+}
+
+.product span{
+    text-decoration: line-through;
+    padding-right:0.5rem;
+    color:red;
+}

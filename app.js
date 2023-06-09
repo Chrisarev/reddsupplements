@@ -75,7 +75,6 @@ app.post('/addProduct', upload.any(), async (req,res) =>{
     }
 })
 
-
 app.get('*', (req,res) =>{
     res.sendFile(path.join(__dirname+ '/public/index.html'))
 })

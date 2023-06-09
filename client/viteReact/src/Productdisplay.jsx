@@ -1,13 +1,22 @@
-import { useEffect } from 'react'
 import styles from './stylesheets/Productdisplay.module.css'
 import goldProtein from './stylesheets/images/goldProtein.jpg'
+import { useEffect, useState } from 'react'
 
-const Productdisplay = () =>{
+const Productdisplay = (props) =>{
+    const [products, setProducts] = useState([]);
 
     useEffect(() =>{
-
+        console.log(props.tag)
+        fetch('/' + props.tag, {
+            method:'GET',
+            headers: {"Content-Type":"application/json"},
+        }).then((response) =>{
+            return response.json()
+        }).then((data) =>{
+            setProducts(prev => data)
+        })
     },[])   
-
+    
     return(
         <div className={styles.productsPanel}>
             <div className={styles.product}>

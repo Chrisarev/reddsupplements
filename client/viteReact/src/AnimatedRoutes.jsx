@@ -4,7 +4,7 @@ import Home from './Home'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import {AnimatePresence} from 'framer-motion'
-import {Protein} from './Protein'
+import Protein from './Protein'
 function AnimatedRoutes() {
   const location = useLocation();
   

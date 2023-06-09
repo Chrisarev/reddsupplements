@@ -1,13 +1,15 @@
 import styles from './stylesheets/Protein.module.css'
 import Navbar from './Navbar';
+import Productdisplay from './Productdisplay';
+
 const Protein = () =>{
 
     return(
         <>
         <Navbar />
-        <Productdisplay />
+        <Productdisplay tag='protein'/>
         </>
     )
 }
 
-export default Footer;
+export default Protein;

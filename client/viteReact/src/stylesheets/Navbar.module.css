@@ -1,0 +1,17 @@
+.navbar{
+    width:100%;
+    height:4rem;
+    background-color:black;
+}
+
+.icon{
+    height:4rem;
+    width:4rem;
+    background-color:lightblue;
+    margin-left:15vw;
+    user-select: none;
+}
+
+.cartSection{
+    
+}

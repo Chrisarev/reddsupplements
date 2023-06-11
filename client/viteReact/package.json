@@ -1,6 +1,10 @@
 {
   "name": "vitereact",
   "private": true,
+  "options": {
+    "allowedHosts": ["localhost", ".localhost"],
+    "proxy": "https://localhost:3000/"
+  },
   "version": "0.0.0",
   "type": "module",
   "scripts": {

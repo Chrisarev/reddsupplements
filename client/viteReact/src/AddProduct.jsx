@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import styles from './stylesheets/AddProduct.module.css'
+import axios from "axios";
 
 const AddProduct = () => {
     const [productTitle, setProductTitle] = useState('');
@@ -18,11 +19,7 @@ const AddProduct = () => {
         FD.append('productDesc', productDesc)
         FD.append('productCategory', productCategory)
         FD.append('productImage', productImage)
-        fetch('/addProduct', {
-            method: 'POST',
-            headers: { "Content-Type": "application/json" },
-            body: FD
-        }).then((response) => {
+        axios.post('/addProduct', FD).then((response) => {
             console.log(response.status)
             setProductTitle('')
             setProductCategory('')

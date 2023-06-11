@@ -56,6 +56,7 @@ app.get('/getCart', async (req,res) =>{
 
 app.post('/addProduct', upload.any(), async (req,res) =>{
     const formData = req.body; 
+    console.log(formData);
     try{
         const newProduct = new Product();         
         if(req.files){

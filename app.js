@@ -40,7 +40,7 @@ app.use(mongoSanitize()) ///prevents users from inputting characters that could 
 
 app.get('/category/:category', async (req,res) =>{
     console.log('Retrieving all' + req.params.category + ' products.')
-    const products = await Product.find({'category' : req.params.category}).populate();
+    const products = await Product.find({'productCategory' : req.params.category}).populate();
     res.json(products)
 })
 
@@ -69,8 +69,10 @@ app.post('/addProduct', upload.any(), async (req,res) =>{
         newProduct.productPrice = formData.productPrice; 
         newProduct.productPrevPrice = formData.productPrevPrice;
         await newProduct.save(); 
+        console.log('POSTED!')
         res.sendStatus(204); 
     }catch (e) {
+        console.log('FAILED!')
         res.sendStatus(401);
     }
 })

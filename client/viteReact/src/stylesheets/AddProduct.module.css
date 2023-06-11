@@ -1,0 +1,17 @@
+.prodForm{
+    display:flex;
+    flex-direction: column;
+    gap:1rem;
+    align-items: center;
+}
+
+
+.prodForm input{
+    height:3rem;
+    width:30rem;
+}
+
+.prodForm textarea{
+    height:3rem;
+    width:30rem;
+}

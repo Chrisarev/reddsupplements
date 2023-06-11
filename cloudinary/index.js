@@ -11,7 +11,7 @@ cloudinary.config({
 const storage = new CloudinaryStorage({
     cloudinary, 
     params: {
-        folder: 'reddSupplements', 
+        folder: 'redddSupplements', 
         allowedFormats:['jpeg', 'png', 'jpg']
     }
 }); ///specifies which folder in cloudinary to upload images to, and accepted image

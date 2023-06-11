@@ -8,7 +8,8 @@ const Productdisplay = (props) => {
     useEffect(() => {
         console.log(props.tag)
         /* props.tag is a product category*/
-        fetch('/' + props.tag, {
+        /* fetch('/' + props.tag, {*/
+        fetch('/products', {
             method: 'GET',
             headers: { "Content-Type": "application/json" },
         }).then((response) => {
@@ -17,9 +18,18 @@ const Productdisplay = (props) => {
             setProducts(prev => data)
         })
     }, [])
-
+    
     return (
         <div className={styles.productsPanel}>
+            {products.map((product) => (
+                <Link to="/">
+                    <div className={styles.product}>
+                        <img src={product.image} alt="productImage" />
+                        <h2>{product.productTitle}</h2>
+                        <p><span>{product.productPrevPrice}</span>{product.productPrice}</p>
+                    </div>
+                </Link>
+            ))}
             <Link to="/">
                 <div className={styles.product}>
                     <img src={goldProtein} alt="" />

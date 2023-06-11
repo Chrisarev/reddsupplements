@@ -13,7 +13,7 @@ const ExpressError = require('./utils/ExpressError')
 const multer = require('multer'); ///require multer to parse images sent in forms 
 const {storage} = require('./cloudinary')
 const upload = multer({storage}) ///store uploaded images to cloudinary path in storage config 
-
+const cors = require('cors')
 
 ///THIS NEEDS TO BE SET TO DEPLOY 
 const dbUrl = process.env.DB_URL;
@@ -30,6 +30,7 @@ db.once("open", () => {
 });///checks to see if connected and handles db connection error
 
 const app = express()
+app.use(cors())
 
 app.use(express.json({limit:"50mb"}))
 app.use(express.static(path.join(__dirname + '/public')))
@@ -38,6 +39,14 @@ app.use(methodOverride('_method')) ///allows requests other than get/post thru f
 app.use(mongoSanitize()) ///prevents users from inputting characters that could result in mongo injection
 
 
+
+app.all('*', function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    next();
+  });
+  
 app.get('/category/:category', async (req,res) =>{
     console.log('Retrieving all' + req.params.category + ' products.')
     const products = await Product.find({'productCategory' : req.params.category}).populate();

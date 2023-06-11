@@ -61,8 +61,6 @@ app.post('/addProduct', upload.any(), async (req,res) =>{
         const newProduct = new Product();         
         if(req.files){
             newProduct.image = req.files[0].path; 
-        }else{
-            console.log('Multer image upload failed')
         }
         newProduct.productTitle = formData.productTitle;
         newProduct.productDesc = formdata.productDesc;

@@ -10,7 +10,7 @@ const AddProduct = () => {
     const [productCategory, setProductCategory] = useState('');
     const [productImage, setProductImage] = useState('')
 
-    const handleProductSubmit = () => {
+    const handleProductSubmit = (e) => {
         e.preventDefault();
         const FD = new FormData();
         FD.append('productTitle', productTitle)
@@ -33,7 +33,7 @@ const AddProduct = () => {
 
     return (
         <>
-            <form className={styles.prodForm}onSubmit={handleProductSubmit}>
+            <form className={styles.prodForm} onSubmit={handleProductSubmit}>
                 <label htmlFor="productTitle">Product Title</label>
                 <input type="text" name="productTitle" value={productTitle}
                     onChange={(e) => setProductTitle(e.target.value)}

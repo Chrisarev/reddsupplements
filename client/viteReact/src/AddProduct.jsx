@@ -32,6 +32,13 @@ const AddProduct = () => {
         })
     }
     */
+    const fileOnChange = (event) => {
+        const file = event.target.files[0];
+        if (file) {
+            setProductImage(file);
+        }
+    }
+
     const handleProductSubmit = (e) => {
         e.preventDefault();
         const FD = new FormData();
@@ -42,9 +49,9 @@ const AddProduct = () => {
         FD.append('productCategory', productCategory)
         FD.append('productImage', productImage)
         fetch('/addProduct', {
-            method:"POST",
+            method: "POST",
             body: FD
-        }).then((response) =>{
+        }).then((response) => {
             console.log(response.status)
             setProductTitle('')
             setProductCategory('')
@@ -52,9 +59,9 @@ const AddProduct = () => {
             setProductPrevPrice('')
             setProductPrice('')
             setProductImage('')
-            return response; 
+            return response;
         })
-    }   
+    }
 
     return (
         <>
@@ -82,7 +89,7 @@ const AddProduct = () => {
                 />
                 <label htmlFor="productImage">Product Image</label>
                 <input type="file" name={productImage} value={productImage}
-                    onChange={(e) => setProductImage(URL.createObjectURL(e.target.file))}
+                    onChange={fileOnChange}
                 />
                 <button type="submit">Submit</button>
             </form>

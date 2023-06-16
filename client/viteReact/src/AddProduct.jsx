@@ -82,7 +82,7 @@ const AddProduct = () => {
                 />
                 <label htmlFor="productImage">Product Image</label>
                 <input type="file" name={productImage} value={productImage}
-                    onChange={(e) => setProductImage(e.target.file)}
+                    onChange={(e) => setProductImage(URL.createObjectURL(e.target.file))}
                 />
                 <button type="submit">Submit</button>
             </form>

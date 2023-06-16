@@ -76,6 +76,7 @@ app.post('/addProduct', upload.any(), async (req,res) =>{
         newProduct.productCategory = formData.productCategory; 
         newProduct.productPrice = formData.productPrice; 
         newProduct.productPrevPrice = formData.productPrevPrice;
+        console.log(newProduct); 
         await newProduct.save(); 
         console.log('POSTED!')
         res.sendStatus(204); 

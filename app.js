@@ -67,10 +67,11 @@ app.post('/addProduct', upload.any(), async (req,res) =>{
     const formData = req.body; 
     console.log(formData);
     try{
-        console.log('trying!~')
         const newProduct = new Product();         
         if(req.files){
+            console.log('trying 1!')
             newProduct.image = req.files[0].path; 
+            console.log('trying 2!')
         }
         newProduct.productTitle = formData.productTitle;
         newProduct.productDesc = formdata.productDesc;
@@ -78,6 +79,7 @@ app.post('/addProduct', upload.any(), async (req,res) =>{
         newProduct.productPrice = formData.productPrice; 
         newProduct.productPrevPrice = formData.productPrevPrice;
         console.log(newProduct); 
+        console.log('trying 3!')
         await newProduct.save(); 
         console.log('POSTED!')
         res.sendStatus(204); 

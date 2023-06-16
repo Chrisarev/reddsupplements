@@ -88,7 +88,7 @@ const AddProduct = () => {
                     onChange={(e) => setProductCategory(e.target.value)}
                 />
                 <label htmlFor="productImage">Product Image</label>
-                <input type="file" name="productImage" value={productImage}
+                <input type="file" name="productImage"
                     onChange={fileOnChange}
                 />
                 <button type="submit">Submit</button>

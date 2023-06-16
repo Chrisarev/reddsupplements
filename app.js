@@ -70,6 +70,7 @@ app.post('/addProduct', upload.any(), async (req,res) =>{
         const newProduct = new Product();         
         if(req.files){
             console.log('trying 1!')
+            console.log(req.files);
             newProduct.image = req.files[0].path; 
             console.log('trying 2!')
         }

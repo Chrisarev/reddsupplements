@@ -45,7 +45,7 @@ app.all('*', function(req, res, next) {
     res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
     res.header('Access-Control-Allow-Headers', 'Content-Type');
     next();
-  });
+});
   
 app.get('/category/:category', async (req,res) =>{
     console.log('Retrieving all' + req.params.category + ' products.')
@@ -81,7 +81,7 @@ app.post('/addProduct', upload.any(), async (req,res) =>{
         res.sendStatus(204); 
     }catch (e) {
         console.log('FAILED!')
-        res.sendStatus(401);
+        res.sendStatus(301);
     }
 })
 

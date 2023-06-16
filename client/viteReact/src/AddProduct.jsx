@@ -10,6 +10,7 @@ const AddProduct = () => {
     const [productCategory, setProductCategory] = useState('');
     const [productImage, setProductImage] = useState('')
 
+    /*
     const handleProductSubmit = (e) => {
         e.preventDefault();
         const FD = new FormData();
@@ -30,6 +31,30 @@ const AddProduct = () => {
             return response;
         })
     }
+    */
+    const handleProductSubmit = (e) => {
+        e.preventDefault();
+        const FD = new FormData();
+        FD.append('productTitle', productTitle)
+        FD.append('productPrice', productPrice)
+        FD.append('productPrevPrice', productPrevPrice)
+        FD.append('productDesc', productDesc)
+        FD.append('productCategory', productCategory)
+        FD.append('productImage', productImage)
+        fetch('/addProduct', {
+            method:"POST",
+            body: FD
+        }).then((response) =>{
+            console.log(response.status)
+            setProductTitle('')
+            setProductCategory('')
+            setProductDesc('')
+            setProductPrevPrice('')
+            setProductPrice('')
+            setProductImage('')
+            return response; 
+        })
+    }   
 
     return (
         <>

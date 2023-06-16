@@ -67,6 +67,7 @@ app.post('/addProduct', upload.any(), async (req,res) =>{
     const formData = req.body; 
     console.log(formData);
     try{
+        console.log('trying!~')
         const newProduct = new Product();         
         if(req.files){
             newProduct.image = req.files[0].path; 

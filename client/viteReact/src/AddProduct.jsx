@@ -47,7 +47,7 @@ const AddProduct = () => {
         FD.append('productPrevPrice', productPrevPrice)
         FD.append('productDesc', productDesc)
         FD.append('productCategory', productCategory)
-        FD.append('productImage', productImage)
+        FD.append('image', productImage)
         fetch('/addProduct', {
             method: "POST",
             body: FD

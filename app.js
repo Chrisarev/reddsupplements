@@ -75,8 +75,7 @@ app.post('/addProduct', upload.any(), async (req,res) =>{
             console.log('trying 2!')
         }
         newProduct.productTitle = formData.productTitle;
-        console.log(newProduct.productTitle)
-        newProduct.productDesc = formdata.productDesc;
+        newProduct.productDesc = formData.productDesc;
         newProduct.productCategory = formData.productCategory; 
         newProduct.productPrice = formData.productPrice; 
         newProduct.productPrevPrice = formData.productPrevPrice;

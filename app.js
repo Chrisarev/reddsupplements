@@ -49,10 +49,10 @@ app.use(mongoSanitize()) ///prevents users from inputting characters that could 
 const secret = process.env.SECRET || 'thisshouldbeabettersecret!'
 
 const store = MongoDBStore.create({
-    mongoURL:dbUrl,
+    mongoUrl:dbUrl,
     secret,
     touchAfter: 24 * 60 * 60 ///lazy update session unless 1 day has passed
-})
+});
 
 store.on('error', function(e){
     console.log('SESSION STORE ERROR:', e)
@@ -72,17 +72,18 @@ const sessionConfig = {
 }
 app.use(session(sessionConfig))
 
-
 /***************** PASSPORT CONFIGURATION *****************/ 
 app.use(passport.initialize())
 app.use(passport.session()) ///for persistent login sessions
 passport.use(new LocalStrategy(User.authenticate())) ///use UserSchema authentication that was plugged into User Schema with passport-local-mongoose
 passport.deserializeUser(User.deserializeUser()) 
 
+/*
 app.use((req,res,next) =>{
     res.locals.currentUser = req.user; ///gives access to the current user in all templates
     next()
 })
+*/
 
 app.all('*', function(req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');

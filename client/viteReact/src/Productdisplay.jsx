@@ -9,18 +9,28 @@ const Productdisplay = (props) => {
         console.log(props.tag)
         /* props.tag is a product category*/
         /* fetch('/' + props.tag, {*/
-        fetch('/products', {
+        /*fetch('/products', {
             method: 'GET',
             headers: { "Content-Type": "application/json" },
         }).then((response) => {
             return response.json()
         }).then((data) => {
             setProducts(prev => data)
+        })*/
+        fetch(`category/${props.tag}`,{
+            method:'GET',
+            headers: {"Content-Type":"application/json"}
+        }).then((response) =>{
+            return response.json()
+        }).then((data) =>{
+            setProducts(prev => data); 
         })
     }, [])
     
     return (
         <div className={styles.productsPanel}>
+            <div className={styles.selector}>
+            </div>
             {products.map((product) => (
                 <Link to="/">
                     <div className={styles.product}>

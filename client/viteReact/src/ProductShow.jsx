@@ -1,8 +1,10 @@
-import styles from './stylesheets/ProductShow.module.css'
+
 import Navbar from './Navbar';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
+import styles from './stylesheets/Productshow.module.css';
+
 const ProductShow = () =>{
     const routeParams = useParams(); 
     const [product, setProduct] = useState();

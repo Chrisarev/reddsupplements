@@ -107,6 +107,13 @@ app.get('/products', async (req,res) =>{
     res.json(products); 
 })
 
+app.get('/product/:prodID', async (req,res) =>{
+    const productID = req.params.prodID;
+    const product = await Product.findOne({"_id": productID}).populate(); 
+    console.log(product);
+    res.json(product);
+})
+
 app.get('/getCart', async (req,res) =>{
     res.sendStatus(203);
 })

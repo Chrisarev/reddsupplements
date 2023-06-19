@@ -6,6 +6,7 @@ import { useLocation } from 'react-router-dom';
 import {AnimatePresence} from 'framer-motion'
 import Protein from './Protein'
 import AddProduct from './AddProduct'
+import ProductShow from './ProductShow'
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -16,6 +17,7 @@ function AnimatedRoutes() {
           <Route path="/" element={<Home />}></Route>
           <Route path="/protein" element={<Protein />}></Route>
           <Route path="/addProduct" element={<AddProduct />}></Route>
+          <Route path="/product/:prodID" element={<ProductShow />}></Route>
         </Routes>
     </AnimatePresence>
   );

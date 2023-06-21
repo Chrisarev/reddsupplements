@@ -15,7 +15,7 @@ const Productdisplay = (props) => {
             setProducts(prev => data); 
         })
     }, [])
-
+    
     return (
         <div className={styles.productsPanel}>
             <div className={styles.selector}>

@@ -93,10 +93,10 @@ app.get('/api/products', async (req, res) => {
 })
 
 app.get('/api/product/:prodID', async (req, res) => {
-    const productID = req.params.prodID;
-    console.log('productID: ' + productID)
+    const {prodID}= req.params;
+    console.log('productID: ' + prodID)
     try {
-        const product = await Product.findById({ _id: productID });
+        const product = await Product.findById({ _id: prodID});
         res.json(product);
     } catch (e) {
         console.log('failed')

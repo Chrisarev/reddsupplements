@@ -112,12 +112,11 @@ app.get('/product/:prodID', async (req,res) =>{
     const product = new Product(); 
     try{
      product = await Product.findById({_id: productID}); 
+     res.json(product);
     } catch (e) {
         console.log('failed') 
         res.sendStatus(301)
-    }
-    res.json(product);
-})
+    }})
 
 app.get('/getCart', async (req,res) =>{
     res.sendStatus(203);

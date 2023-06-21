@@ -27,25 +27,7 @@ const ProductShow = () => {
         <>
             <Navbar />
             <div className={styles.panel}>
-                {product &&
-                    <div className={styles.productInfo}>
-                        <div className={styles.productTitle}>
-                            {product.productTitle}
-                        </div>
-                        <div className={productImage}>
-                            <img src={product.image} alt="" />
-                        </div>
-                        <div className={styles.productPrice}>
-                            {product.productPrevPrice &&
-                                <span>{product.productPrevPrice}</span>
-                            }
-                            {product.productPrice}
-                        </div>
-                        <div className={styles.productDesc}>
-                            {product.productDesc}
-                        </div>
-                    </div>
-                }
+                {product.productTitle}
             </div>
         </>
     )

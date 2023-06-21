@@ -8,7 +8,6 @@ import styles from './stylesheets/Productshow.module.css';
 const ProductShow = () => {
     const routeParams = useParams();
     const [product, setProduct] = useState();
-    console.log(routeParams.prodID);
 
     useEffect(() => {
         fetch(`product/${routeParams.prodID}`, {
@@ -27,7 +26,7 @@ const ProductShow = () => {
         <>
             <Navbar />
             <div className={styles.panel}>
-                {product.productTitle}
+                 rendered
             </div>
         </>
     )

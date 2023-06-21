@@ -109,7 +109,7 @@ app.get('/products', async (req,res) =>{
 
 app.get('/product/:prodID', async (req,res) =>{
     const productID = req.params.prodID;
-    const product = await Product.findOne({"_id": productID}).populate(); 
+    const product = await Product.find({_id: productID}); 
     console.log(product);
     res.json(product);
 })

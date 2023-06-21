@@ -6,7 +6,7 @@ const Productdisplay = (props) => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        fetch(`category/${props.tag}`,{
+        fetch(`/api/category/${props.tag}`,{
             method:'GET',
             headers: {"Content-Type":"application/json"}
         }).then((response) =>{

@@ -9,7 +9,7 @@ const ProductShow = () => {
     const [product, setProduct] = useState();
 
     useEffect(() => {
-        fetch(`product/${prodID}`, {
+        fetch(`/api/product/${prodID}`, {
             method: 'GET',
             headers: { "Content-Type": "application/json" },
         }).then((response) => {

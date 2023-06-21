@@ -48,7 +48,7 @@ const AddProduct = () => {
         FD.append('productDesc', productDesc)
         FD.append('productCategory', productCategory)
         FD.append('image', productImage)
-        fetch('/addProduct', {
+        fetch('/api/addProduct', {
             method: "POST",
             body: FD
         }).then((response) => {

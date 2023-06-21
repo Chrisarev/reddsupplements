@@ -78,36 +78,21 @@ app.use(passport.session()) ///for persistent login sessions
 passport.use(new LocalStrategy(User.authenticate())) ///use UserSchema authentication that was plugged into User Schema with passport-local-mongoose
 passport.deserializeUser(User.deserializeUser()) 
 
-/*
-app.use((req,res,next) =>{
-    res.locals.currentUser = req.user; ///gives access to the current user in all templates
-    next()
-})
-*/
-
-app.all('*', function(req, res, next) {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
-    res.header('Access-Control-Allow-Headers', 'Content-Type');
-    next();
-});
-  
-
 /***************** ROUTES *****************/ 
-app.get('/category/:category', async (req,res) =>{
+app.get('/api/category/:category', async (req,res) =>{
     console.log('Retrieving all' + req.params.category + ' products.')
     const products = await Product.find({'productCategory' : req.params.category}).populate();
     res.json(products)
 })
 
 
-app.get('/products', async (req,res) =>{
+app.get('/api/products', async (req,res) =>{
     console.log('Retrieving all products.')
     const products = await Product.find({}).populate(); 
     res.json(products); 
 })
 
-app.get('product/:prodID', async (req,res) =>{
+app.get('/api/product/:prodID', async (req,res) =>{
     const productID = req.params.prodID;
     const product = new Product(); 
     try{
@@ -118,12 +103,12 @@ app.get('product/:prodID', async (req,res) =>{
         res.sendStatus(301)
     }})
 
-app.get('/getCart', async (req,res) =>{
+app.get('/api/getCart', async (req,res) =>{
     res.sendStatus(203);
 })
 
 /* adding a new Product */
-app.post('/addProduct', upload.any(), async (req,res) =>{
+app.post('/api/addProduct', upload.any(), async (req,res) =>{
     const formData = req.body; 
     console.log(formData);
     try{
@@ -147,12 +132,12 @@ app.post('/addProduct', upload.any(), async (req,res) =>{
 })
 
 /* Checking to see if user is logged in */
-app.get('isAuth', isLoggedIn, (req,res) =>{
+app.get('/api/sAuth', isLoggedIn, (req,res) =>{
     res.sendStatus(204);
 })
 
 /* Registering a new User*/
-app.post('/postUser', catchAsync(async (req,res) =>{
+app.post('/api/postUser', catchAsync(async (req,res) =>{
     try{
         const {email, username, password} = req.body; 
         const user = new User({email,username})
@@ -167,7 +152,7 @@ app.post('/postUser', catchAsync(async (req,res) =>{
 }))
 
 /* attempting to login for existing user */
-app.post('/login', passport.authenticate('local',{ keepSessionInfo:true}), (req,res) =>{
+app.post('/api/login', passport.authenticate('local',{ keepSessionInfo:true}), (req,res) =>{
     if (!req.user) {
         res.sendStatus(401)
     }else {
@@ -176,14 +161,14 @@ app.post('/login', passport.authenticate('local',{ keepSessionInfo:true}), (req,
 })
 
 /* attempting to logOut for existing user*/
-app.post('/logout', (req,res) =>{
+app.post('/api/logout', (req,res) =>{
     req.logout(function (err) {
         if (err) {res.json({attempt:"Failed"})}
         res.json({attempt:'Success'})
     })
 })
 
-app.get('/cart/:userID', isLoggedIn, (req,res) =>{
+app.get('/api/cart/:userID', isLoggedIn, (req,res) =>{
     res.sendStatus(204);
 })
 

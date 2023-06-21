@@ -1,4 +1,3 @@
-
 import Navbar from './Navbar';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
@@ -26,7 +25,7 @@ const ProductShow = () => {
         <>
             <Navbar />
             <div className={styles.panel}>
-                 rendered
+
             </div>
         </>
     )

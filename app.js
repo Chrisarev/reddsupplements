@@ -109,8 +109,9 @@ app.get('/products', async (req,res) =>{
 
 app.get('/product/:prodID', async (req,res) =>{
     const productID = req.params.prodID;
+    const product = new Product(); 
     try{
-    const product = await Product.findById({_id: productID}); 
+     product = await Product.findById({_id: productID}); 
     } catch (e) {
         console.log('failed') 
         res.sendStatus(301)

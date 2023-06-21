@@ -25,7 +25,7 @@ const ProductShow = () => {
             <Navbar />
             <div className={styles.panel}>
                 <div className={styles.productTitle}>
-                    {product.productTitle &&
+                    {product &&
                         <div>{product.productTitle}</div>
                     }
                 </div>

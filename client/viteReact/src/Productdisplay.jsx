@@ -15,13 +15,13 @@ const Productdisplay = (props) => {
             setProducts(prev => data); 
         })
     }, [])
-    
+
     return (
         <div className={styles.productsPanel}>
             <div className={styles.selector}>
             </div>
             {products.map((product) => (
-                <Link to={`/product/${product.id}`}>
+                <Link to={`/product/${product._id}`}>
                     <div className={styles.product}>
                         <img src={product.image} alt="productImage" />
                         <h2>{product.productTitle}</h2>

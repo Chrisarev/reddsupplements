@@ -21,7 +21,6 @@ function AnimatedRoutes() {
           <Route path="/category/:category" element={<ProductsGrid />}></Route>
           <Route path="/product/:prodID" element={<ProductShow />}></Route>
         </Routes>
-
     </AnimatePresence>
   );
 }

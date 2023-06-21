@@ -107,7 +107,7 @@ app.get('/products', async (req,res) =>{
     res.json(products); 
 })
 
-app.get('/product/:prodID', async (req,res) =>{
+app.get('product/:prodID', async (req,res) =>{
     const productID = req.params.prodID;
     const product = new Product(); 
     try{

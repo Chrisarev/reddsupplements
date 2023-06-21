@@ -5,8 +5,8 @@ import styles from './stylesheets/ProductsGrid.module.css';
 import Productdisplay from './Productdisplay';
 
 const ProductsGrid = () => {
-    const routeParams = useParams();
-    console.log(routeParams.category);
+    const {category} = useParams();
+    console.log(category);
 
     return (
         <>

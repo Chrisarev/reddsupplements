@@ -5,17 +5,16 @@ import { useState } from 'react';
 import styles from './stylesheets/Productshow.module.css';
 
 const ProductShow = () => {
-    const routeParams = useParams();
+    const {prodID} = useParams();
     const [product, setProduct] = useState();
 
     useEffect(() => {
-        fetch(`product/${routeParams.prodID}`, {
+        fetch(`product/${prodID}`, {
             method: 'GET',
-            headers: { "Content-Type": "application/json" }
+            headers: { "Content-Type": "application/json" },
         }).then((response) => {
             return response.json()
         }).then((data) => {
-            console.log(data);
             setProduct(data);
         })
     }, [])

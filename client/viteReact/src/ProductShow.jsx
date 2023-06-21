@@ -20,12 +20,15 @@ const ProductShow = () => {
         })
     }, [])
 
-
     return (
         <>
             <Navbar />
             <div className={styles.panel}>
-
+                <div className={styles.productTitle}>
+                    {product.productTitle &&
+                        <div>{product.productTitle}</div>
+                    }
+                </div>
             </div>
         </>
     )

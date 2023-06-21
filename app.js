@@ -109,8 +109,12 @@ app.get('/products', async (req,res) =>{
 
 app.get('/product/:prodID', async (req,res) =>{
     const productID = req.params.prodID;
+    try{
     const product = await Product.findById({_id: productID}); 
-    console.log(product);
+    } catch (e) {
+        console.log('failed') 
+        res.sendStatus(301)
+    }
     res.json(product);
 })
 

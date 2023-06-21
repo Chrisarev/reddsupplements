@@ -6,8 +6,8 @@ import { useLocation } from 'react-router-dom';
 import {AnimatePresence} from 'framer-motion'
 import Protein from './Protein'
 import AddProduct from './AddProduct'
-import ProductShow from './ProductShow'
 import ProductsGrid from './ProductsGrid'
+import ProductShow from './ProductShow'
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -21,7 +21,7 @@ function AnimatedRoutes() {
           <Route path="/category/:category" element={<ProductsGrid />}></Route>
           <Route path="/product/:prodID" element={<ProductShow />}></Route>
         </Routes>
-        
+
     </AnimatePresence>
   );
 }

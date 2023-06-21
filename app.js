@@ -100,7 +100,7 @@ app.get('/api/product/:prodID', async (req, res) => {
         res.json(product);
     } catch (e) {
         console.log('failed')
-        res.sendStatus(301)
+        res.sendStatus(501)
     }
 })
 

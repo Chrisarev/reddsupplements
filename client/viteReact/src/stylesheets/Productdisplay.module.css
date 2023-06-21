@@ -8,13 +8,17 @@
 .productsPanel{
     display:flex;
     flex-wrap:wrap; 
+    align-items: center;
     gap:1rem;
     width:100%; 
+    padding:0 5vw;
 }
+
 .productsPanel a{
     text-decoration: none; /* no underline */
     color:black;
 }
+
 .product{
     display:flex;
     flex-direction: column;

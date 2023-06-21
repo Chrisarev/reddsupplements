@@ -12,10 +12,10 @@ import cBumBanner from './stylesheets/images/cbumBanner.jpg'
 import { Link } from 'react-router-dom';
 
 const Home = () => {
+
     return (
         <div className={styles.panel}>
             <Navbar />
-            <div className={styles.header}>Red Supplements</div>
             <div className={styles.promotionSection}>
                 <Swiper
                     modules={[Navigation, Pagination, Scrollbar, A11y]}
@@ -103,22 +103,28 @@ const Home = () => {
                 </Swiper>
             </div>
             <div className={styles.trainingSection}>
-                <p>Get Personalized Training From Our Certified Experts!</p>
+                <div className={styles.content}>
+                    <p>Get Personalized Training From Our Certified Experts!</p>
+                    <div className={styles.buttonHolder}>
+                        <button>See Trainers</button>
+                        <button>Learn More</button>
+                    </div>
+                </div>
             </div>
             <div className={styles.categorySelector}>
                 <h1>Shop By Category</h1>
                 <div className={styles.categoriesHolder}>
-                    <Link to='/protein'>
+                    <Link to='/category/protein'>
                         <img src={goldProtein} alt="" />
                         <h2>Protein</h2>
                         <button>SHOP NOW</button>
                     </Link>
-                    <Link to='/preworkout'>
+                    <Link to='/category/preworkout'>
                         <img src={goldProtein} alt="" />
                         <h2>Preworkout</h2>
                         <button>SHOP NOW</button>
                     </Link>
-                    <Link to='/supplements'>
+                    <Link to='/category/supplements'>
                         <img src={goldProtein} alt="" />
                         <h2>Supplements</h2>
                         <button>SHOP NOW</button>

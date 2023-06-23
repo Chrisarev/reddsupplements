@@ -16,9 +16,19 @@ const Productdisplay = (props) => {
         })
     }, [])
 
+
     return (
         <div className={styles.productsPanel}>
             <div className={styles.selector}>
+                <button className={styles.selectorOption}>
+                    Protein
+                </button>
+                <button className={styles.selectorOption}>
+                    Preworkout
+                </button>
+                <button className={styles.selectorOption}>
+                    Supplements
+                </button>
             </div>
             {products.map((product) => (
                 <Link to={`/product/${product._id}`}>
@@ -32,7 +42,42 @@ const Productdisplay = (props) => {
             <Link to="/">
                 <div className={styles.product}>
                     <img src={goldProtein} alt="" />
-                    <h2>Gold Protein</h2>
+                    <h2>Gold Protein but longer title to test h2 overflow AAA!!!!</h2>
+                    <p><span>$50.00</span>$45.00</p>
+                </div>
+            </Link>
+            <Link to="/">
+                <div className={styles.product}>
+                    <img src={goldProtein} alt="" />
+                    <h2>Gold Protein but longer title to test h2 overflow AAA!!!!</h2>
+                    <p><span>$50.00</span>$45.00</p>
+                </div>
+            </Link>
+            <Link to="/">
+                <div className={styles.product}>
+                    <img src={goldProtein} alt="" />
+                    <h2>Gold Protein but longer title to test h2 overflow AAA!!!!</h2>
+                    <p><span>$50.00</span>$45.00</p>
+                </div>
+            </Link>
+            <Link to="/">
+                <div className={styles.product}>
+                    <img src={goldProtein} alt="" />
+                    <h2>Gold Protein but longer title to test h2 overflow AAA!!!!</h2>
+                    <p><span>$50.00</span>$45.00</p>
+                </div>
+            </Link>
+            <Link to="/">
+                <div className={styles.product}>
+                    <img src={goldProtein} alt="" />
+                    <h2>Gold Protein but longer title to test h2 overflow AAA!!!!</h2>
+                    <p><span>$50.00</span>$45.00</p>
+                </div>
+            </Link>
+            <Link to="/">
+                <div className={styles.product}>
+                    <img src={goldProtein} alt="" />
+                    <h2>Gold Protein but longer title to test h2 overflow AAA!!!!</h2>
                     <p><span>$50.00</span>$45.00</p>
                 </div>
             </Link>

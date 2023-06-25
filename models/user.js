@@ -8,12 +8,11 @@ const UserSchema = new Schema({
         required: true,
         unique: true
     },
-    cart: [ ///array of references to review objects
+    cart:
         {
             type: Schema.Types.ObjectId,
-            ref: 'Product'
+            ref: 'Cart'
         }
-    ]
 })
 
 UserSchema.plugin(passportLocalMongoose);

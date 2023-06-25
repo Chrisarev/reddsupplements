@@ -6,6 +6,8 @@ import Protein from './Protein'
 import AddProduct from './AddProduct'
 import ProductsGrid from './ProductsGrid'
 import ProductShow from './ProductShow'
+import Signup from './Signup';
+import Login from './Login';
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
           <Route path="/addProduct" element={<AddProduct />}></Route>
           <Route path="/category/:category" element={<ProductsGrid />}></Route>
           <Route path="/product/:prodID" element={<ProductShow />}></Route>
+          <Route path="/signup" element={<Signup />}></Route>
+          <Route path="/login" element={<Login />}></Route>
         </Routes>
       </div>
     </Router>

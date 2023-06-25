@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 const Navbar = () => {
     return (
         <div className={styles.navbar}>
-            <div className={styles.icon}>
+            <Link to="/" className={styles.icon}>
                 <svg width="50px" height="50px" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"
                     xmlns: xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
                     class="iconify iconify--emojione-monotone" preserveAspectRatio="xMidYMid meet">
@@ -12,7 +12,7 @@ const Navbar = () => {
                         fill="#FF0000">
                         </path>
                 </svg>
-            </div>
+            </Link>
         <div className={styles.links}>
             <Link to='/category/protein'>Protein</Link>
             <Link to='/category/preworkout'>Preworkout</Link>

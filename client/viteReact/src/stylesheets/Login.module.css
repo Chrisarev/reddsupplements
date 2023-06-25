@@ -1,0 +1,58 @@
+.loginForm{
+    width:100vw;
+    display:flex;
+    justify-content: center;
+    max-height:100vh;
+}
+
+.formCard{
+    margin-top:10vh;
+    width:28rem;
+    padding-bottom:15rem;
+    border:1px solid black;
+    display:flex;
+    flex-direction: column;
+    border-radius: 7px;
+}
+
+.formCard h1{
+    font-size: clamp(1rem, 1vw + 1rem, 2rem);
+    color: black;
+    font-family: 'Kanit', sans-serif;
+    font-weight: 500;
+    text-align: center;
+}
+
+.formCard label{
+    width:70%;
+    margin-left:15%;
+    color: black;
+    font-family: 'Kanit', sans-serif;
+    font-weight: 500;
+    font-size: clamp(1rem, 0.8vw + 0.8rem, 1.5rem);
+}
+
+.formCard input{
+    width:70%;
+    margin-left:15%;
+    height:2rem;
+    font-size: clamp(1rem, 1vw + 1rem, 1.5rem);
+    color: black;
+    font-weight: 500;
+    margin-bottom:1rem;
+}
+
+.formCard button{
+    width:10rem;
+    height:2.5rem;
+    margin-left:15%;
+    font-size: clamp(1rem, 0.8vw + 0.8rem, 1.5rem);
+    background-color: red;
+    color:white;
+    transition:all 0.15s linear;
+    border:1px solid red;
+}
+
+.formCard button:hover{
+    cursor:pointer;
+}

@@ -15,7 +15,7 @@ const Login = () =>{
         setIsPending(true);
 
         ///logs user in, 401 response from server means invalid credentials so they must try again
-        fetch('/login', {
+        fetch('/api/login', {
             method: 'POST',
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(user)

@@ -13,15 +13,16 @@ const Signup = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         const user = { username, password, email };
+        console.log(user)
         setIsPending(true);
 
         fetch('/api/postUser', {
             method: 'POST',
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(user)
-        }).then(
-            response => response.json()
-        ).then((data) => {
+        }).then((response) =>{
+            return response.json(); 
+        }).then((data) => {
             setIsPending(false);
             if (data.user != null) {
                 localStorage.setItem('username', data.user)
@@ -29,7 +30,7 @@ const Signup = () => {
             navigate(data.redirectURL)
         })
     }
-
+    
     return (
         <>
             <Navbar />
@@ -54,7 +55,7 @@ const Signup = () => {
                         pattern="[a-zA-Z0-9-]+"
                         value={username}
                         placeholder="6-20 letters long"
-                        onChange={(e) => setUsername(e.target.value.replace(/[^a-zA-Z\d]/ig, ""))}
+                        onChange={(e) => setUsername(e.target.value)}
                     />
                     <label>Password:</label>
                     <input
@@ -65,7 +66,7 @@ const Signup = () => {
                         pattern="[a-zA-Z0-9-]+"
                         placeholder='6-20 letters long'
                         value={password}
-                        onChange={(e) => setPassword(e.target.value.replace(/[^a-zA-Z\d]/ig, ""))}
+                        onChange={(e) => setPassword(e.target.value)}
                     />
                     {!isPending && <button>Sign Up</button>}
                     {isPending && <button disabled>Creating..</button>}

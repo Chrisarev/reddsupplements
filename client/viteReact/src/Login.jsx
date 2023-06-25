@@ -53,7 +53,7 @@ const Login = () =>{
                         maxLength={20}
                         pattern="[a-zA-Z0-9-]+"
                         value={username}
-                        onChange={(e) => setUsername(e.target.value.replace(/[^a-zA-Z\d]/ig, ""))}
+                        onChange={(e) => setUsername(e.target.value)}
                     />
                     <label>Password:</label>
                     <input
@@ -63,7 +63,7 @@ const Login = () =>{
                         maxLength={20}
                         pattern="[a-zA-Z0-9-]+"
                         value={password}
-                        onChange={(e) => setPassword(e.target.value.replace(/[^a-zA-Z\d]/ig, ""))}
+                        onChange={(e) => setPassword(e.target.value)}
                     />
                     {!isPending && <button>Sign In</button>}
                     {isPending && <button disabled>Logging in..</button>}

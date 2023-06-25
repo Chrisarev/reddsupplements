@@ -75,8 +75,10 @@ app.use(session(sessionConfig))
 /***************** PASSPORT CONFIGURATION *****************/
 app.use(passport.initialize())
 app.use(passport.session()) ///for persistent login sessions
+
 passport.use(new LocalStrategy(User.authenticate())) ///use UserSchema authentication that was plugged into User Schema with passport-local-mongoose
-passport.deserializeUser(User.deserializeUser())
+passport.serializeUser(User.serializeUser()) ///tells passport how to store user in session
+passport.deserializeUser(User.deserializeUser()) ///tells passport how to remove user from session
 
 /***************** ROUTES *****************/
 app.get('/api/category/:category', async (req, res) => {

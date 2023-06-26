@@ -31,6 +31,44 @@
     user-select: none;
 }
 
-.cartSection{
-    
+.userSection{
+    display:flex;
+    gap:1rem;
+    color:white;
+}
+
+.userIcon{
+    cursor:pointer;
+}
+
+.cart{
+    cursor:pointer;
+}
+
+.userDropDown{
+    position:absolute;
+    display:flex;
+    flex-direction: column;
+    gap:1rem;
+    top:4rem;
+    z-index:10;
+    opacity:0;
+}
+
+.cartDropDown{
+    position:absolute;
+    display:flex;
+    flex-direction: column;
+    gap:1rem;
+    top:4rem;
+    z-index:10;
+    opacity:0;
+}
+
+.userIcon:hover + .userDropDown{
+   opacity:1;
+}
+
+.cart:hover + .cartDropDown{
+    opacity:1;
 }

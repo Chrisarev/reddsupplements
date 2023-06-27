@@ -18,6 +18,7 @@ const session = require('express-session') ///allows us to make HTTP stateful wi
 const passport = require('passport') ///auth middleware
 const LocalStrategy = require('passport-local') ///LOCAL user/pass auth strategy for passport
 const User = require('./models/user')
+const Cart = require('./models/cart')
 const MongoDBStore = require('connect-mongo') ///allows us to store session in mongo
 const { isLoggedIn } = require('./middleware')
 const { validateUserInfo } = require('./middleware')

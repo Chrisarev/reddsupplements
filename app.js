@@ -87,6 +87,11 @@ app.get('/api/category/:category', async (req, res) => {
     res.json(products)
 })
 
+app.get('/api/getCart', isLoggedIn, async (req, res) => {
+    console.log(req.user.id)
+    const cart = await Cart.find({'user':req.user.id }).populate(); 
+    res.json(cart)
+}) 
 
 app.get('/api/products', async (req, res) => {
     console.log('Retrieving all products.')
@@ -104,10 +109,6 @@ app.get('/api/product/:prodID', async (req, res) => {
         console.log('failed')
         res.sendStatus(501)
     }
-})
-
-app.get('/api/getCart', async (req, res) => {
-    res.sendStatus(203);
 })
 
 /* adding a new Product */
@@ -169,10 +170,6 @@ app.post('/api/logout', (req, res) => {
         if (err) { res.json({ attempt: "Failed" }) }
         res.json({ attempt: 'Success' })
     })
-})
-
-app.get('/api/cart/:userID', isLoggedIn, (req, res) => {
-    res.sendStatus(204);
 })
 
 app.get('*', (req, res) => {

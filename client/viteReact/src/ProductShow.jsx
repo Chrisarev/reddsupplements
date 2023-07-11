@@ -28,8 +28,7 @@ const ProductShow = () => {
         setIsPending(true);
         fetch(`/api/addCart/${prodID}`, {
             method: 'POST',
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(productQuantity)
+            body: productQuantity
         }).then((response) => {
             if (response.status == 204) {
                 console.log('added to cart')
@@ -49,7 +48,9 @@ const ProductShow = () => {
             <div className={styles.panel}>
                 {product &&
                     <div className={styles.productPanel}>
-                        <img className={styles.productIMG} src={product.image}></img>
+                        <div className={styles.imageHolder}>
+                            <img className={styles.productIMG} src={product.image}></img>
+                        </div>
                         <div className={styles.productInfo}>
                             <h1 className={styles.productTitle}>
                                 {product.productTitle}
@@ -57,25 +58,25 @@ const ProductShow = () => {
                             <p className={styles.productPrice}><span>{product.productPrevPrice}</span>{product.productPrice}</p>
                             <p className={styles.productDesc}>{product.productDesc}</p>
                             <form onSubmit={handleSubmit}>
-                            <label htmlFor="quantity">Quantity</label>
-                            <select className={styles.quantitySelect} name="quantity" value={productQuantity}
-                                onChange={(e) => setProductQuantity(prev => e.target.value)}>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select>
-                            {!cartAddStatus && !isPending &&
-                                <button type="submit">ADD TO CART</button>
-                            }
-                            {isPending &&
-                                <button disabled >Adding...</button>
-                            }
-                            {cartAddStatus && !isPending && 
-                                <button disabled className={styles.successButton}>Added to Cart!</button>
-                            }
-                        </form>
+                                <label htmlFor="quantity">Quantity</label>
+                                <select className={styles.quantitySelect} name="quantity" value={productQuantity}
+                                    onChange={(e) => setProductQuantity(prev => e.target.value)}>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                                {!cartAddStatus && !isPending &&
+                                    <button type="submit">ADD TO CART</button>
+                                }
+                                {isPending &&
+                                    <button disabled >Adding...</button>
+                                }
+                                {cartAddStatus && !isPending &&
+                                    <button disabled className={styles.successButton}>Added to Cart!</button>
+                                }
+                            </form>
                         </div>
                     </div>
                 }
@@ -108,7 +109,7 @@ const ProductShow = () => {
                             {isPending &&
                                 <button disabled >Adding...</button>
                             }
-                            {cartAddStatus && !isPending && 
+                            {cartAddStatus && !isPending &&
                                 <button disabled className={styles.successButton}>Added to Cart!</button>
                             }
                         </form>

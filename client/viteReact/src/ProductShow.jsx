@@ -29,7 +29,7 @@ const ProductShow = () => {
         fetch(`/api/addCart/${prodID}`, {
             method: 'POST',
             headers: { "Content-Type": "application/json" },
-            body: productQuantity
+            body: JSON.stringify(productQuantity)
         }).then((response) => {
             if (response.status == 204) {
                 console.log('added to cart')

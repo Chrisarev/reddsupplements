@@ -28,7 +28,7 @@ const Navbar = () => {
                 setCart('');
                 return response;
             } else if (varr != null) {
-                console.log('setting to true')
+                console.log('setting to true:' + varr)
                 setIsLoggedIn(true)
                 return response.json()
             }
@@ -51,7 +51,7 @@ const Navbar = () => {
         })
     }
 
-
+    
     return (
         <div className={styles.navbar}>
             <Link to="/" className={styles.icon}>
@@ -100,12 +100,16 @@ const Navbar = () => {
                         </svg>
                     </div>
                 }
+                {/*}
                 {isLoggedIn &&
                     <div className={`${styles.dropDown} ${styles.cartDropDown}`}>
-                        <Link to="/">{cart.products[0]}</Link>
-                        <Link to="/">Item2</Link>
+                        {cart.products && cart.products.map((product) => (
+                            <Link to="/">{product.productTitle}</Link>
+                        ))}
+                        <Link to="/">Test product</Link>
                     </div>
                 }
+            */}
             </div>
         </div>
     )

@@ -4,16 +4,15 @@ const User = require('./user')
 const Product = require('./product')
 
 const CartSchema = new Schema({
-    products: [
-        {
+    products: [{
+        product: {
             type: Schema.Types.ObjectId,
             ref: 'Product'
+        },
+        quantity: {
+            type: Number
         }
-    ],
-    quantities: [{
-        type: Number
-    }
-    ],
+    }],
     user: {
         type: Schema.Types.ObjectId,
         ref: 'User'
@@ -21,3 +20,23 @@ const CartSchema = new Schema({
 });
 
 module.exports = mongoose.model('Cart', CartSchema); 
+
+
+/*
+const CartSchema = new Schema({
+    products: [{
+        product: {
+            type: Schema.Types.ObjectId,
+            ref: 'Product'
+        },
+        quantity: {
+            type: Number
+        }
+    }],
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    }
+});
+
+*/

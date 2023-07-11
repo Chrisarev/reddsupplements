@@ -90,9 +90,43 @@ app.get('/api/category/:category', async (req, res) => {
 
 app.get('/api/getCart', isLoggedIn, async (req, res) => {
     console.log(req.user.id)
-    const cart = await Cart.find({'user':req.user.id }).populate(); 
+    const cart = await Cart.find({ 'user': req.user.id }).populate();
     res.json(cart)
-}) 
+})
+
+/*
+app.post('/api/addCart/:prodID', isLoggedIn, async (req, res) => {
+    const { prodID } = req.params;
+    try {
+        const product = await Product.findById({ _id: prodID });
+        const cart = await Cart.find({ 'user': req.user.id }).populate();
+        cart.products.push(product);
+        await cart.save();
+        res.sendStatus(204);
+    } catch (e) {
+        console.log('Failed to add to cart')
+        res.sendStatus(301);
+    }
+})
+*/
+
+app.post('/api/addCart/:prodID', isLoggedIn, async (req, res) => {
+    const { prodID } = req.params;
+    /* productQuantity passed in req.body from react fetch*/
+    const {productQuantity} = req.body;
+    try {
+        const product = await Product.findById({ _id: prodID });
+        const cart = await Cart.find({ 'user': req.user.id }).populate();
+        /* cart has products property which is an array of [product Model, integer quantity] entries */
+        const data = [product, productQuantity]; 
+        cart.products.push(data);
+        await cart.save();
+        res.sendStatus(204);
+    } catch (e) {
+        console.log('Failed to add to cart')
+        res.sendStatus(301);
+    }
+})
 
 app.get('/api/products', async (req, res) => {
     console.log('Retrieving all products.')
@@ -101,10 +135,10 @@ app.get('/api/products', async (req, res) => {
 })
 
 app.get('/api/product/:prodID', async (req, res) => {
-    const {prodID}= req.params;
+    const { prodID } = req.params;
     console.log('productID: ' + prodID)
     try {
-        const product = await Product.findById({ _id: prodID});
+        const product = await Product.findById({ _id: prodID });
         res.json(product);
     } catch (e) {
         console.log('failed')

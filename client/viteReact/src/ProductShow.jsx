@@ -9,8 +9,9 @@ const ProductShow = () => {
     const [product, setProduct] = useState();
     const [productQuantity, setProductQuantity] = useState(0);
     const [productVariation, setProductVariation] = useState('');
+    const [cartAddStatus, setCartAddStatus] = useState(false);
+    const [isPending, setIsPending] = useState(false);
 
-    /*
     useEffect(() => {
         fetch(`/api/product/${prodID}`, {
             method: 'GET',
@@ -21,10 +22,25 @@ const ProductShow = () => {
             setProduct(data);
         })
     }, [])
- */
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(productQuantity)
+        setIsPending(true);
+        fetch(`/api/addCart/${prodID}`, {
+            method: 'POST',
+            headers: { "Content-Type": "application/json" },
+            body: productQuantity
+        }).then((response) => {
+            if (response.status == 204) {
+                console.log('added to cart')
+                setIsPending(false);
+                setCartAddStatus(true);
+                return response;
+            }
+            setIsPending(false);
+            setCartAddStatus(false);
+            return response;
+        })
     }
 
     return (
@@ -66,11 +82,20 @@ const ProductShow = () => {
                                 <option value="4">4</option>
                                 <option value="5">5</option>
                             </select>
-                            <button type="submit">ADD TO CART</button>
+                            {!cartAddStatus && !isPending &&
+                                <button type="submit">ADD TO CART</button>
+                            }
+                            {isPending &&
+                                <button disabled >Adding...</button>
+                            }
+                            {cartAddStatus && !isPending && 
+                                <button disabled className={styles.successButton}>Added to Cart!</button>
+                            }
                         </form>
+                        <h2>Limit 5 per order </h2>
                     </div>
                 </div>
-            </div>
+            </div >
         </>
     )
 }

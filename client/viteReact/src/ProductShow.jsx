@@ -28,7 +28,10 @@ const ProductShow = () => {
         setIsPending(true);
         fetch(`/api/addCart/${prodID}`, {
             method: 'POST',
-            body: JSON.stringify(productQuantity)
+            headers: { "Content-Type": "application/json" },
+            body:{
+                "productQuantity":productQuantity
+            }
         }).then((response) => {
             if (response.status == 204) {
                 console.log('added to cart')

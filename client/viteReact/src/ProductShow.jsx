@@ -25,13 +25,12 @@ const ProductShow = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        let FD = new FormData(); 
+        FD.append('productQuantity', productQuantity)
         setIsPending(true);
         fetch(`/api/addCart/${prodID}`, {
             method: 'POST',
-            headers: { "Content-Type": "application/json" },
-            body:{
-                "productQuantity":productQuantity
-            }
+            body:FD
         }).then((response) => {
             if (response.status == 204) {
                 console.log('added to cart')

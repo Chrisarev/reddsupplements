@@ -110,7 +110,7 @@ app.post('/api/addCart/:prodID', isLoggedIn, async (req, res) => {
 
 app.post('/api/addCart/:prodID', isLoggedIn, async (req, res) => {
     const { prodID } = req.params;
-    console.log(req);
+    console.log(req.body);
     /* productQuantity passed in req.body from react fetch*/
     try {
         const {productQuantity} = req.body;

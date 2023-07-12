@@ -125,7 +125,7 @@ app.post('/api/addCart/:prodID', isLoggedIn, async (req, res) => {
         res.sendStatus(204);
     } catch (e) {
         console.log('Failed to add to cart')
-        res.sendStatus(301);
+        res.sendStatus(500);
     }
 })
 

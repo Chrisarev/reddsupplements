@@ -5,7 +5,9 @@ import { useState } from 'react';
 import styles from './stylesheets/Productshow.module.css';
 import goldProtein from './stylesheets/images/goldProtein.jpg'
 import axios from "axios"; 
+
 const ProductShow = () => {
+
     const { prodID } = useParams();
     const [product, setProduct] = useState();
     const [productQuantity, setProductQuantity] = useState(0);
@@ -30,6 +32,26 @@ const ProductShow = () => {
         const FD = new FormData(); 
         FD.append('productQuantity', productQuantity)
         setIsPending(true);
+        
+        let data = {
+            productQuantity: '2'
+        }
+
+        fetch(`/api/addCart/${prodID}`, {
+            method:"POST",
+            body: JSON.stringify(data)
+        }).then((response) =>{
+            if (response.status == 204) {
+                console.log('added to cart')
+                setIsPending(false);
+                setCartAddStatus(true);
+                return response;
+            }
+            setIsPending(false);
+            setCartAddStatus(false);
+            return response;
+        })
+        /*
         axios.post(`/api/addCart/${prodID}`, FD).then((response) => {
             if (response.status == 204) {
                 console.log('added to cart')
@@ -41,6 +63,7 @@ const ProductShow = () => {
             setCartAddStatus(false);
             return response;
         })
+        */
     }
 
     return (

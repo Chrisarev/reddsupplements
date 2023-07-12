@@ -25,6 +25,7 @@ const ProductShow = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        console.log('productQuantity' + productQuantity); 
         let FD = new FormData(); 
         FD.append('productQuantity', productQuantity)
         setIsPending(true);
@@ -82,7 +83,7 @@ const ProductShow = () => {
                         </div>
                     </div>
                 }
-
+    {/*
                 <div className={styles.productPanel}>
                     <div className={styles.imageHolder}>
                         <img className={styles.productIMG} src={goldProtein}></img>
@@ -117,7 +118,7 @@ const ProductShow = () => {
                         </form>
                         <h2>Limit 5 per order </h2>
                     </div>
-                </div>
+                        </div> */}
             </div >
         </>
     )

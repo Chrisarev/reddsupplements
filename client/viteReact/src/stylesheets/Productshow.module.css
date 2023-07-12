@@ -92,6 +92,7 @@
 .productPanel h2{
     font-size: clamp(1rem, 0.5vw + 0.5rem, 3rem);
     color:rgb(95, 95, 95);
+    
 }
 
 

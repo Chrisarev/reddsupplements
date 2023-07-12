@@ -13,7 +13,6 @@ const ExpressError = require('./utils/ExpressError')
 const multer = require('multer'); ///require multer to parse images sent in forms 
 const { storage } = require('./cloudinary')
 const upload = multer({ storage }) ///store uploaded images to cloudinary path in storage config 
-const cors = require('cors')
 const session = require('express-session') ///allows us to make HTTP stateful with individual sessions and cookies
 const passport = require('passport') ///auth middleware
 const LocalStrategy = require('passport-local') ///LOCAL user/pass auth strategy for passport
@@ -39,7 +38,6 @@ db.once("open", () => {
 
 /***************** MIDDLEWARE CONFIG *****************/
 const app = express()
-app.use(cors())
 app.use(express.json({ limit: "50mb" }))
 app.use(express.static(path.join(__dirname + '/public')))
 app.use(express.urlencoded({ extended: true })) ///allows us to get req.params 
@@ -112,10 +110,10 @@ app.post('/api/addCart/:prodID', isLoggedIn, async (req, res) => {
 
 app.post('/api/addCart/:prodID', isLoggedIn, async (req, res) => {
     const { prodID } = req.params;
-    console.log(req)
+    console.log(req);
     /* productQuantity passed in req.body from react fetch*/
-    const {productQuantity} = req.body;
     try {
+        const {productQuantity} = req.body;
         const product = await Product.findById({ _id: prodID });
         const cart = await Cart.find({ 'user': req.user.id }).populate();
         /* cart has products property which is an array of [product Model, integer quantity] entries */

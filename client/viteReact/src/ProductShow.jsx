@@ -10,7 +10,7 @@ const ProductShow = () => {
 
     const { prodID } = useParams();
     const [product, setProduct] = useState();
-    const [productQuantity, setProductQuantity] = useState(0);
+    const [productQuantity, setProductQuantity] = useState('0');
     const [productVariation, setProductVariation] = useState('');
     const [cartAddStatus, setCartAddStatus] = useState(false);
     const [isPending, setIsPending] = useState(false);
@@ -26,32 +26,13 @@ const ProductShow = () => {
         })
     }, [])
 
-    const handleSubmit = (e) => {
+    const handleFormSubmit = (e) => {
         e.preventDefault();
         console.log('productQuantity' + productQuantity); 
         const FD = new FormData(); 
         FD.append('productQuantity', productQuantity)
+        console.log(FD); 
         setIsPending(true);
-        
-        let data = {
-            productQuantity: '2'
-        }
-
-        fetch(`/api/addCart/${prodID}`, {
-            method:"POST",
-            body: JSON.stringify(data)
-        }).then((response) =>{
-            if (response.status == 204) {
-                console.log('added to cart')
-                setIsPending(false);
-                setCartAddStatus(true);
-                return response;
-            }
-            setIsPending(false);
-            setCartAddStatus(false);
-            return response;
-        })
-        /*
         axios.post(`/api/addCart/${prodID}`, FD).then((response) => {
             if (response.status == 204) {
                 console.log('added to cart')
@@ -63,7 +44,6 @@ const ProductShow = () => {
             setCartAddStatus(false);
             return response;
         })
-        */
     }
 
     return (
@@ -81,7 +61,7 @@ const ProductShow = () => {
                             </h1>
                             <p className={styles.productPrice}><span>{product.productPrevPrice}</span>{product.productPrice}</p>
                             <p className={styles.productDesc}>{product.productDesc}</p>
-                            <form onSubmit={handleSubmit}>
+                            <form onSubmit={handleFormSubmit}>
                                 <label htmlFor="quantity">Quantity</label>
                                 <select className={styles.quantitySelect} name="quantity" value={productQuantity}
                                     onChange={(e) => setProductQuantity(e.target.value)}>

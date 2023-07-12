@@ -33,7 +33,14 @@ const ProductShow = () => {
         FD.append('productQuantity', productQuantity)
         console.log(FD); 
         setIsPending(true);
-        axios.post(`/api/addCart/${prodID}`, FD).then((response) => {
+        
+        const headers = {
+            'Content-Type': 'multipart/form-data'
+        }
+
+        axios.post(`/api/addCart/${prodID}`, FD, {
+            headers: headers
+        }).then((response) => {
             if (response.status == 204) {
                 console.log('added to cart')
                 setIsPending(false);

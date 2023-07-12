@@ -33,7 +33,7 @@ const ProductShow = () => {
         FD.append('productQuantity', productQuantity)
         console.log(FD); 
         setIsPending(true);
-        
+
         const headers = {
             'Content-Type': 'multipart/form-data'
         }
@@ -52,7 +52,18 @@ const ProductShow = () => {
             return response;
         })
     }
-
+    const handleFormSubmitNew = (e) => {
+        e.preventDefault();
+        const FD = new FormData();
+        FD.append('productQuantity', productQuantity)
+        fetch(`/api/addCart/${prodID}`, {
+            method: "POST",
+            body: FD
+        }).then((response) => {
+            console.log(response.status)
+            return response;
+        })
+    }
     return (
         <>
             <Navbar />
@@ -68,7 +79,7 @@ const ProductShow = () => {
                             </h1>
                             <p className={styles.productPrice}><span>{product.productPrevPrice}</span>{product.productPrice}</p>
                             <p className={styles.productDesc}>{product.productDesc}</p>
-                            <form onSubmit={handleFormSubmit}>
+                            <form onSubmit={handleFormSubmitNew}>
                                 <label htmlFor="quantity">Quantity</label>
                                 <select className={styles.quantitySelect} name="quantity" value={productQuantity}
                                     onChange={(e) => setProductQuantity(e.target.value)}>

@@ -28,18 +28,15 @@ const ProductShow = () => {
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
-        console.log('productQuantity' + productQuantity); 
         const FD = new FormData(); 
-        FD.append('productQuantity', productQuantity)
+        FD.append('productQuantity', productQuantity);
+        FD.append('prodID', prodID);
         console.log(FD); 
         setIsPending(true);
 
-        const headers = {
-            'Content-Type': 'multipart/form-data'
-        }
-
-        axios.post(`/api/addCart/${prodID}`, FD, {
-            headers: headers
+        fetch('/api/addCart', {
+            method:"POST", 
+            body: FD
         }).then((response) => {
             if (response.status == 204) {
                 console.log('added to cart')
@@ -52,6 +49,7 @@ const ProductShow = () => {
             return response;
         })
     }
+
     const handleFormSubmitNew = (e) => {
         e.preventDefault();
         const FD = new FormData();

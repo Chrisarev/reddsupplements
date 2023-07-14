@@ -201,13 +201,11 @@ app.post('/api/addCart', async (req,res) =>{
         console.log(productNew._id)
         /* cart has products property which is an array of [product Model, integer quantity] entries */
         /*const data = [productNew.productTitle,productQuantity];  */
-        const data ={};
-        data.productTitle = productNew.productTitle;
-        data.quantity = productQuantity;
-        console.log(data);
-        cart.products.push(data);
-        console.log(cart); 
-        await cart.save();
+        Cart.findByIdAndUpdate({'user': req.user.id},
+            {$push: {'products':
+            {"productTitle" : `${productNew.productTitle}`,
+            "quantity":`${productQuantity}`}}
+        })
         res.sendStatus(204);
     } catch (e) {
         console.log('Failed to add to cart')

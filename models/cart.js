@@ -6,8 +6,7 @@ const Product = require('./product')
 const CartSchema = new Schema({
     products: [{
         product: {
-            type: Schema.Types.ObjectId,
-            ref: 'Product'
+            type: String
         },
         quantity: {
             type: Number
@@ -19,7 +18,7 @@ const CartSchema = new Schema({
     }
 });
 
-module.exports = mongoose.model('Cart', CartSchema); 
+module.exports = mongoose.model('Cart', CartSchema);
 
 
 /*

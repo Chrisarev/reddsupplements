@@ -197,10 +197,10 @@ app.post('/api/addCart', async (req,res) =>{
         const {productQuantity, prodID} = req.body; 
         const product = await Product.findById({ _id: prodID });
         const cart = await Cart.find({ 'user': req.user.id }).populate();
+        console.log("CART: " + cart); 
         /* cart has products property which is an array of [product Model, integer quantity] entries */
         const data = [product, productQuantity]; 
         console.log('created data')
-        console.log(data);
         cart.products.push(data);
         console.log('pushed data')
         await cart.save();

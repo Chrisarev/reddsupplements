@@ -195,11 +195,12 @@ app.post('/api/addCart', async (req,res) =>{
 
     try{
         const {productQuantity, prodID} = req.body; 
-        const product = await Product.findById({ _id: prodID });
+        const productNew = await Product.findById({ _id: prodID });
         const cart = await Cart.find({ 'user': req.user.id });
         console.log("CART: " + cart); 
+        console.log(productNew._id)
         /* cart has products property which is an array of [product Model, integer quantity] entries */
-        const data = [product, productQuantity]; 
+        const data = {product: `${productNew._id}`, productQuantity: `${productQuantity}`};  
         console.log(data);
         cart.products.push(data);
         await cart.save();

@@ -206,6 +206,7 @@ app.post('/api/addCart', async (req,res) =>{
         data.quantity = productQuantity;
         console.log(data);
         cart.products.push(data);
+        console.log(cart); 
         await cart.save();
         res.sendStatus(204);
     } catch (e) {

@@ -196,7 +196,7 @@ app.post('/api/addCart', async (req,res) =>{
     try{
         const {productQuantity, prodID} = req.body; 
         const product = await Product.findById({ _id: prodID });
-        const cart = await Cart.find({ 'user': req.user.id }).populate();
+        const cart = await Cart.find({ 'user': req.user.id });
         console.log("CART: " + cart); 
         /* cart has products property which is an array of [product Model, integer quantity] entries */
         const data = [product, productQuantity]; 

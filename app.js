@@ -161,6 +161,9 @@ app.post('/api/postUser', catchAsync(async (req, res) => {
         const { email, username, password } = req.body;
         const user = new User({ email, username })
         const registeredUser = await User.register(user, password);
+        const cart = new Cart();
+        cart.user = user;
+        await cart.save();
         req.login(registeredUser, err => {
             if (err) return next(err);
             res.json({ redirectURL: '/', user: username })
@@ -198,27 +201,6 @@ app.post('/api/addCart', async (req,res) =>{
         const data = [product, productQuantity]; 
         console.log('created data')
         console.log(data);
-        cart.products.push(data);
-        console.log('pushed data')
-        await cart.save();
-        res.sendStatus(204);
-    } catch (e) {
-        console.log('Failed to add to cart')
-        res.sendStatus(500);
-    }
-})
-
-app.post('/api/addCart/:prodID/:extra', async (req, res) => {
-    const { prodID } = req.params;
-    console.log(req.body);
-    /* productQuantity passed in req.body from react fetch*/
-    try {
-        const {productQuantity} = req.body;
-        const product = await Product.findById({ _id: prodID });
-        const cart = await Cart.find({ 'user': req.user.id }).populate();
-        /* cart has products property which is an array of [product Model, integer quantity] entries */
-        const data = [product, productQuantity]; 
-        console.log('created data')
         cart.products.push(data);
         console.log('pushed data')
         await cart.save();

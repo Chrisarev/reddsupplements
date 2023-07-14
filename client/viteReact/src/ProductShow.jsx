@@ -28,15 +28,17 @@ const ProductShow = () => {
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
-        const FD = new FormData(); 
+        /*const FD = new FormData(); 
         FD.append('productQuantity', productQuantity);
         FD.append('prodID', prodID);
-        console.log(FD); 
+        console.log(FD); */
+        const data = {productQuantity, prodID}
         setIsPending(true);
 
         fetch('/api/addCart', {
             method:"POST", 
-            body: FD
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data)
         }).then((response) => {
             if (response.status == 204) {
                 console.log('added to cart')
@@ -50,18 +52,6 @@ const ProductShow = () => {
         })
     }
 
-    const handleFormSubmitNew = (e) => {
-        e.preventDefault();
-        const FD = new FormData();
-        FD.append('productQuantity', productQuantity)
-        fetch(`/api/addCart/${prodID}`, {
-            method: "POST",
-            body: FD
-        }).then((response) => {
-            console.log(response.status)
-            return response;
-        })
-    }
     return (
         <>
             <Navbar />
@@ -100,7 +90,7 @@ const ProductShow = () => {
                         </div>
                     </div>
                 }
-            </div >
+            </div>
         </>
     )
 }

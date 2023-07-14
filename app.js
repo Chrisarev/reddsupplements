@@ -108,27 +108,6 @@ app.post('/api/addCart/:prodID', isLoggedIn, async (req, res) => {
 })
 */
 
-app.post('/api/addCart/:prodID', async (req, res) => {
-    const { prodID } = req.params;
-    console.log(req.body);
-    /* productQuantity passed in req.body from react fetch*/
-    try {
-        const {productQuantity} = req.body;
-        const product = await Product.findById({ _id: prodID });
-        const cart = await Cart.find({ 'user': req.user.id }).populate();
-        /* cart has products property which is an array of [product Model, integer quantity] entries */
-        const data = [product, productQuantity]; 
-        console.log('created data')
-        cart.products.push(data);
-        console.log('pushed data')
-        await cart.save();
-        res.sendStatus(204);
-    } catch (e) {
-        console.log('Failed to add to cart')
-        res.sendStatus(500);
-    }
-})
-
 app.get('/api/products', async (req, res) => {
     console.log('Retrieving all products.')
     const products = await Product.find({}).populate();
@@ -206,6 +185,47 @@ app.post('/api/logout', (req, res) => {
         if (err) { res.json({ attempt: "Failed" }) }
         res.json({ attempt: 'Success' })
     })
+})
+
+app.post('/api/addCart', async (req,res) =>{
+    console.log(req.body);
+
+    try{
+        const {productQuantity, prodID} = req.body; 
+        const product = await Product.findById({ _id: prodID });
+        const cart = await Cart.find({ 'user': req.user.id }).populate();
+        /* cart has products property which is an array of [product Model, integer quantity] entries */
+        const data = [product, productQuantity]; 
+        console.log('created data')
+        cart.products.push(data);
+        console.log('pushed data')
+        await cart.save();
+        res.sendStatus(204);
+    } catch (e) {
+        console.log('Failed to add to cart')
+        res.sendStatus(500);
+    }
+})
+
+app.post('/api/addCart/:prodID/:extra', async (req, res) => {
+    const { prodID } = req.params;
+    console.log(req.body);
+    /* productQuantity passed in req.body from react fetch*/
+    try {
+        const {productQuantity} = req.body;
+        const product = await Product.findById({ _id: prodID });
+        const cart = await Cart.find({ 'user': req.user.id }).populate();
+        /* cart has products property which is an array of [product Model, integer quantity] entries */
+        const data = [product, productQuantity]; 
+        console.log('created data')
+        cart.products.push(data);
+        console.log('pushed data')
+        await cart.save();
+        res.sendStatus(204);
+    } catch (e) {
+        console.log('Failed to add to cart')
+        res.sendStatus(500);
+    }
 })
 
 app.get('*', (req, res) => {

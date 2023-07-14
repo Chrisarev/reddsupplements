@@ -77,7 +77,7 @@ const ProductShow = () => {
                             </h1>
                             <p className={styles.productPrice}><span>{product.productPrevPrice}</span>{product.productPrice}</p>
                             <p className={styles.productDesc}>{product.productDesc}</p>
-                            <form onSubmit={handleFormSubmitNew}>
+                            <form onSubmit={handleFormSubmit}>
                                 <label htmlFor="quantity">Quantity</label>
                                 <select className={styles.quantitySelect} name="quantity" value={productQuantity}
                                     onChange={(e) => setProductQuantity(e.target.value)}>

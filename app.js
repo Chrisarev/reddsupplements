@@ -200,7 +200,10 @@ app.post('/api/addCart', async (req,res) =>{
         console.log("CART: " + cart); 
         console.log(productNew._id)
         /* cart has products property which is an array of [product Model, integer quantity] entries */
-        const data = [productNew.productTitle,productQuantity];  
+        /*const data = [productNew.productTitle,productQuantity];  */
+        const data ={};
+        data.productTitle = productNew.productTitle;
+        data.quantity = productQuantity;
         console.log(data);
         cart.products.push(data);
         await cart.save();

@@ -33,8 +33,9 @@ const Navbar = () => {
                 return response;
             }
         }).then((data) => {
+            console.log('cartData: ' + data)
             setCart(prev => data);
-            console.log(cart);
+            console.log('cart: ' + cart);
         })
     }, [username1, isLoggedIn])
 
@@ -82,7 +83,7 @@ const Navbar = () => {
                     {isLoggedIn &&
                         <>
                             <Link to="/">{username1}</Link>
-                            <Link to="/">Log Out</Link>
+                            <button onClick={logOutFunction}>Log Out</button>
                         </>
                     }
                     {!(isLoggedIn) &&

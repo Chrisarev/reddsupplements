@@ -92,7 +92,6 @@ const ProductShow = () => {
                         </form>
                     </div>
                 </div>
-                {/*}
                 {product &&
                     <div className={styles.productPanel}>
                         <div className={styles.imageHolder}>
@@ -126,7 +125,7 @@ const ProductShow = () => {
                             </form>
                         </div>
                     </div>
-                }*/}
+                }
             </div>
         </>
     )

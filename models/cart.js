@@ -6,12 +6,8 @@ const Product = require('./product')
 const CartSchema = new Schema({
     products: [
         {
-            productTitle: {
-                type: String
-            },
-            quantity: {
-                type: String
-            }
+            productTitle:String,
+            quantity: String
         }
     ],
     user: {

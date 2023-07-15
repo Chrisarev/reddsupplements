@@ -6,17 +6,16 @@ import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
     const [username1, setUsername1] = useState('username');
-    const [logoutString, setlogoutString] = useState('')
+    /*const [logoutString, setlogoutString] = useState('')*/
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [cart, setCart] = useState();
     ///sets username inside of navbar and logout if user has logged in
     useEffect(() => {
+
         let varr = localStorage.getItem('username');
         if (varr === null) {
-            setlogoutString('')
         } else {
             setUsername1(prev => varr)
-            setlogoutString(prev => 'Log Out')
         }
 
         fetch('/api/getCart', {
@@ -27,17 +26,17 @@ const Navbar = () => {
                 setIsLoggedIn(false);
                 setCart('');
                 return response;
-            } else if (varr != null) {
-                console.log('setting to true:' + varr)
+            } else if (response.satus == 200 || response.status == 204) {
                 setIsLoggedIn(true)
                 return response.json()
+            } else {
+                return response;
             }
-            return response;
         }).then((data) => {
             setCart(prev => data);
             console.log(cart);
         })
-    }, [username1, logoutString, isLoggedIn])
+    }, [username1, isLoggedIn])
 
     const logOutFunction = () => {
         localStorage.removeItem('username')
@@ -51,7 +50,7 @@ const Navbar = () => {
         })
     }
 
-    
+
     return (
         <div className={styles.navbar}>
             <Link to="/" className={styles.icon}>
@@ -100,16 +99,17 @@ const Navbar = () => {
                         </svg>
                     </div>
                 }
-                {/*}
-                {isLoggedIn &&
+                {isLoggedIn && (cart != null) &&
                     <div className={`${styles.dropDown} ${styles.cartDropDown}`}>
-                        {cart.products && cart.products.map((product) => (
-                            <Link to="/">{product.productTitle}</Link>
+                        {cart.products && cart.products.map((productArr) => (
+                            <div className={styles.cartProduct}>
+                                <Link to="/">{productArr.productTitle}</Link>
+                                <div>{productArr.quantity}</div>
+                            </div>
                         ))}
                         <Link to="/">Test product</Link>
                     </div>
                 }
-            */}
             </div>
         </div>
     )

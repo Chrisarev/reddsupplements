@@ -199,7 +199,7 @@ app.post('/api/addCart', async (req, res) => {
         const productNew = await Product.findById({ _id: prodID });
         /* cart has products property which is an array of [product Model, integer quantity] entries */
         /*const data = [productNew.productTitle,productQuantity];  */
-        Cart.updateOne({ 'user': req.user.id },
+        Cart.findOneAndUpdate({ 'user': req.user.id },
             {
                 $push: {
                     products: {

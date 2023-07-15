@@ -197,9 +197,6 @@ app.post('/api/addCart', async (req, res) => {
     try {
         const { productQuantity, prodID } = req.body;
         const productNew = await Product.findById({ _id: prodID });
-        const cart = await Cart.find({ 'user': req.user.id }).populate();
-        console.log("CART: " + cart);
-        console.log(productNew._id)
         /* cart has products property which is an array of [product Model, integer quantity] entries */
         /*const data = [productNew.productTitle,productQuantity];  */
         Cart.updateOne({ 'user': req.user.id },
@@ -212,6 +209,7 @@ app.post('/api/addCart', async (req, res) => {
                 }
             }
         )
+        const cart = await Cart.find({ 'user': req.user.id }).populate();
         console.log("CART AFTER UPDATE: " + cart);
         res.sendStatus(204);
     } catch (e) {

@@ -33,8 +33,8 @@ const Navbar = () => {
                 return response;
             }
         }).then((data) => {
-            console.log('cartData: ' + data)
-            setCart(prev => data);
+            console.log('cartData: ' + JSON.stringify(data))
+            setCart(data);
             console.log('cart: ' + cart);
         })
     }, [username1, isLoggedIn])
@@ -46,6 +46,9 @@ const Navbar = () => {
             headers: { "Content-Type": "application/json" },
             body: ''
         }).then((response) => {
+            if(response.status==200){
+                setIsLoggedIn(false); 
+            }
             navigate('/login')
             return response;
         })

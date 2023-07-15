@@ -89,6 +89,7 @@ app.get('/api/category/:category', async (req, res) => {
 app.get('/api/getCart', isLoggedIn, async (req, res) => {
     console.log(req.user.id)
     const cart = await Cart.find({ 'user': req.user.id }).populate();
+    console.log('cart: ' + cart); 
     res.json(cart)
 })
 

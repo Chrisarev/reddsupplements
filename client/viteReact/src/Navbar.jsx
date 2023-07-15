@@ -26,7 +26,7 @@ const Navbar = () => {
                 setIsLoggedIn(false);
                 setCart('');
                 return response;
-            } else if (response.satus == 200 || response.status == 204) {
+            } else if (response.status == 200) {
                 setIsLoggedIn(true)
                 return response.json()
             } else {

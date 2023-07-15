@@ -89,7 +89,7 @@ app.get('/api/category/:category', async (req, res) => {
 app.get('/api/getCart', isLoggedIn, async (req, res) => {
     console.log(req.user.id)
     const cart = await Cart.find({ 'user': req.user.id }).populate();
-    console.log('cart: ' + cart); 
+    console.log('cart: ' + cart);
     res.json(cart)
 })
 
@@ -191,23 +191,28 @@ app.post('/api/logout', (req, res) => {
     })
 })
 
-app.post('/api/addCart', async (req,res) =>{
+app.post('/api/addCart', async (req, res) => {
     console.log(req.body);
 
-    try{
-        const {productQuantity, prodID} = req.body; 
+    try {
+        const { productQuantity, prodID } = req.body;
         const productNew = await Product.findById({ _id: prodID });
         const cart = await Cart.find({ 'user': req.user.id }).populate();
-        console.log("CART: " + cart); 
+        console.log("CART: " + cart);
         console.log(productNew._id)
         /* cart has products property which is an array of [product Model, integer quantity] entries */
         /*const data = [productNew.productTitle,productQuantity];  */
-        Cart.findByIdAndUpdate({'user': req.user.id},
-            {$push: {'products':
-            {"productTitle" : productNew.productTitle,
-            "quantity":productQuantity}}
-        })
-        console.log("CART AFTER UPDATE: " + cart); 
+        Cart.updateOne({ 'user': req.user.id },
+            {
+                $push: {
+                    products: {
+                        "productTitle": productNew.productTitle,
+                        "quantity": productQuantity
+                    }
+                }
+            }
+        )
+        console.log("CART AFTER UPDATE: " + cart);
         res.sendStatus(204);
     } catch (e) {
         console.log('Failed to add to cart')

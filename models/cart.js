@@ -4,12 +4,10 @@ const User = require('./user')
 const Product = require('./product')
 
 const CartSchema = new Schema({
-    products: [
-        {
-            productTitle:String,
-            quantity: String
-        }
-    ],
+    products: [{
+            productTitle: String,
+            quantity:String
+        }],
     user: {
         type: Schema.Types.ObjectId,
         ref: 'User'

@@ -201,8 +201,8 @@ app.post('/api/addCart', async (req, res) => {
         /*const data = [productNew.productTitle,productQuantity];  */
         Cart.findOneAndUpdate({ 'user': req.user.id },
             {
-                $push: {
-                    products: {
+                "$push": {
+                    "products": {
                         "productTitle": productNew.productTitle,
                         "quantity": productQuantity
                     }

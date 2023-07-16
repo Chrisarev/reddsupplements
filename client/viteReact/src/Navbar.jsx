@@ -34,7 +34,8 @@ const Navbar = () => {
             }
         }).then((data) => {
             console.log('cartData: ' + JSON.stringify(data))
-            setCart(prev => JSON.stringify(data));
+            console.log('cartData noSTRINGIFY: ' + data)
+            setCart(prev => data);
             console.log('New cart: ' + cart);
         })
     }, [username1, isLoggedIn])

@@ -27,7 +27,7 @@ const Navbar = () => {
                 setIsLoggedIn(false);
                 setCart('');
                 return response;
-            } else if (response.status == 200) {
+            } else if (response.status == 200 || response.status == 304) {
                 setIsLoggedIn(true)
                 return response.json()
             } else {
@@ -38,6 +38,7 @@ const Navbar = () => {
             console.log(data.products)
             console.log(data[0])
             console.log(data[0].products)
+            console.log(data[0].products[0].productTitle)
             setCart(prev => data[0].products)
             console.log('cart: '); 
             console.log(cart); 

@@ -33,8 +33,10 @@ const Navbar = () => {
                 return response;
             }
         }).then((data) => {
-            console.log('cartData: ' + JSON.stringify(data))
-            setCart(data.products);
+            console.log('cartData: ' +  data.products)
+            let prods = data.products;
+            console.log('prods: ' + prods)
+            setCart(prev => prods);
             console.log('New cart: ' + cart);
         })
     }, [username1, isLoggedIn])

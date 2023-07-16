@@ -8,7 +8,7 @@ const Navbar = () => {
     const [username1, setUsername1] = useState('username');
     /*const [logoutString, setlogoutString] = useState('')*/
     const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const [cart, setCart] = useState([]);
+    const [cart, setCart] = useState();
     ///sets username inside of navbar and logout if user has logged in
     useEffect(() => {
 
@@ -34,7 +34,9 @@ const Navbar = () => {
             }
         }).then((data) => {
             setCart(data)
-            console.log('cart: ' + cart); 
+            console.log('cart: '); 
+            console.log(cart); 
+            console.log(cart.products)
         })
     }, [username1, isLoggedIn])
 

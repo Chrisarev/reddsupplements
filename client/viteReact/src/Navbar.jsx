@@ -35,12 +35,9 @@ const Navbar = () => {
             }
         }).then((data) => {
             console.log(data)
-            setCart(data)
+            setCart(prev => data[0].products)
             console.log('cart: '); 
             console.log(cart); 
-            setCart2(data.products)
-            console.log('cart2: ')
-            console.log(cart2)
         })
     }, [username1, isLoggedIn])
 

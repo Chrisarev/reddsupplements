@@ -33,10 +33,8 @@ const Navbar = () => {
                 return response;
             }
         }).then((data) => {
-            let prods = JSON.parse(data);
-            console.log('prods: ' + prods)
-            setCart(prev => prods.products);
-            console.log('New cart: ' + cart);
+            setCart(data)
+            console.log(cart); 
         })
     }, [username1, isLoggedIn])
 
@@ -104,6 +102,7 @@ const Navbar = () => {
                         </svg>
                     </div>
                 }
+                {/*}
                 {isLoggedIn && (cart != null) &&
                     <div className={`${styles.dropDown} ${styles.cartDropDown}`}>
                         {cart.products && cart.products.map((productArr) => (
@@ -115,6 +114,7 @@ const Navbar = () => {
                         <Link to="/">Test product</Link>
                     </div>
                 }
+            */}
             </div>
         </div>
     )

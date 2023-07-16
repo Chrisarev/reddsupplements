@@ -34,7 +34,7 @@ const Navbar = () => {
             }
         }).then((data) => {
             setCart(data)
-            console.log(cart); 
+            console.log('cart: ' + cart); 
         })
     }, [username1, isLoggedIn])
 
@@ -56,9 +56,6 @@ const Navbar = () => {
 
     return (
         <div className={styles.navbar}>
-            <button onClick={console.log(cart.products)}>cartData</button>
-            <button onClick={console.log(JSON.stringify(cart))}>cartDatasTRING</button>
-
             <Link to="/" className={styles.icon}>
                 <svg width="50px" height="50px" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"
                     xmlns: xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"

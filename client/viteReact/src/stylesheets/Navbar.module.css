@@ -15,7 +15,7 @@
 
 .icon{
     height:var(--navbar-height);
-    width:4rem;
+    width:var(--navbar-height);
     user-select: none;
     display:flex;
     align-items: center;
@@ -44,6 +44,7 @@
 
 .userIcon{
     height:var(--navbar-height);
+    width:var(--navbar-height);
     cursor:pointer;
     display:flex;
     align-items: center;
@@ -110,4 +111,16 @@
 
 .cart:hover + .cartDropDown{
     visibility:visible;
+}
+
+@media(max-width:800px){
+    .links{
+        display:none;
+    }
+    .links a{
+        display:none;
+    }
+    :root{
+        --navbar-height:3rem;
+    }
 }

@@ -15,7 +15,7 @@ const Productdisplay = (props) => {
         }).then((data) => {
             setProducts(prev => data);
         })
-    }, [])
+    }, [products])
 
 
     return (

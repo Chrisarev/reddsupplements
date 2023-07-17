@@ -5,7 +5,6 @@ import { useState } from 'react';
 import styles from './stylesheets/Productshow.module.css';
 import goldProtein from './stylesheets/images/goldProtein.jpg'
 import axios from "axios";
-
 const ProductShow = () => {
 
     const { prodID } = useParams();

@@ -83,7 +83,7 @@ const Navbar = () => {
             <div className={styles.links}>
                 <Link to='/category/protein'>Protein</Link>
                 <Link to='/category/preworkout'>Preworkout</Link>
-                <Link to='/category/supplements'>Supplements</Link>
+                <Link to='/category/supplement'>Supplements</Link>
             </div>
             <div className={styles.userSection}>
                 <div className={styles.userIcon} id="userIcon">

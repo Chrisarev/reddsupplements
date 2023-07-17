@@ -53,11 +53,20 @@
     border-color:gray;
 }
 
+.product .imageHolder{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
 .product img{
+    float:left;
+    width:20rem;
+    height:20rem;
+    object-fit:contain;
     padding:0;
     margin:0;
     transition:all 0.1s linear;
-    max-height:75%;
+
 }
 
 .product h2{

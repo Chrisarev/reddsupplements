@@ -124,7 +124,7 @@ const Home = () => {
                         <h2>Preworkout</h2>
                         <button>SHOP NOW</button>
                     </Link>
-                    <Link to='/category/supplements'>
+                    <Link to='/category/supplement'>
                         <img src={goldProtein} alt="" />
                         <h2>Supplements</h2>
                         <button>SHOP NOW</button>

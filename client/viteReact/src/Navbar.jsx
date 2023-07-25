@@ -3,55 +3,58 @@ import { Link } from 'react-router-dom'
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import { useRef } from 'react';
 const Navbar = () => {
     const [username1, setUsername1] = useState('username');
     /*const [logoutString, setlogoutString] = useState('')*/
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [cart, setCart] = useState();
-    const [cart2, setCart2] = useState('')
+    const [cart2, setCart2] = useState('');
+    const cartLoaded = useRef(false);
+
     ///sets username inside of navbar and logout if user has logged in
     useEffect(() => {
-
-        let varr = localStorage.getItem('username');
-        if (varr === null) {
-        } else {
-            setUsername1(prev => varr)
-        }
-
-        fetch('/api/getCart', {
-            method: 'GET',
-            headers: { "Content-Type": "application/json" }
-        }).then((response) => {
-            if (response.status == 401) {
-                setIsLoggedIn(false);
-                setCart('');
-                return response;
-            } else if (response.status == 200 || response.status == 304) {
-                setIsLoggedIn(true)
-                return response.json()
+        if (!cartLoaded.current) {
+            let varr = localStorage.getItem('username');
+            if (varr === null) {
             } else {
-                return response;
+                setUsername1(prev => varr)
             }
-        }).then((data) => {
-            console.log(data)
-            console.log(data.products)
-            console.log(data[0])
-            console.log(data[0].products)
-            console.log(data[0].products[0].productTitle)
-            let arr = data[0].products;
-            arr = JSON.stringify(arr); 
-            console.log('arr: ')
-            console.log(arr); 
-            setCart(arr)
-            console.log('cart: '); 
-            console.log(cart); 
-            
-            setCart2(arr)
-            console.log('cart2: '); 
-            console.log(cart2); 
-        })
-    }, [username1, isLoggedIn])
+            fetch('/api/getCart', {
+                method: 'GET',
+                headers: { "Content-Type": "application/json" }
+            }).then((response) => {
+                if (response.status == 401) {
+                    setIsLoggedIn(false);
+                    setCart('');
+                    return response;
+                } else if (response.status == 200 || response.status == 304) {
+                    setIsLoggedIn(true)
+                    return response.json()
+                } else {
+                    return response;
+                }
+            }).then((data) => {
+                //console.log(data)
+                // console.log(data.products)
+                //console.log(data[0])
+                console.log('data[0].products: ')
+                console.log(data[0].products)
+                //console.log(data[0].products[0].productTitle)
+                let arr = data[0].products;
+                arr = JSON.stringify(arr);
+                console.log('arrStringify: ')
+                console.log(arr);
+                setCart(arr)
+                console.log('cart: ');
+                console.log(cart);
+                setCart2(arr)
+                console.log('cart2: ');
+                console.log(cart2);
+            })
+            cartLoaded.current = true;
+        }
+    }, [cart, cart2, username1, isLoggedIn])
 
     const logOutFunction = () => {
         localStorage.removeItem('username')
@@ -60,8 +63,8 @@ const Navbar = () => {
             headers: { "Content-Type": "application/json" },
             body: ''
         }).then((response) => {
-            if(response.status==200){
-                setIsLoggedIn(false); 
+            if (response.status == 200) {
+                setIsLoggedIn(false);
             }
             navigate('/login')
             return response;

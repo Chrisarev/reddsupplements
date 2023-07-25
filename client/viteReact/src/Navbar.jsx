@@ -54,7 +54,7 @@ const Navbar = () => {
                 console.log('cart3: ')
                 console.log(cart3); 
             })
-    }, [])
+    }, [username1, isLoggedIn])
 
     const logOutFunction = () => {
         localStorage.removeItem('username')

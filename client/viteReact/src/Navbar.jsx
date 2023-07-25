@@ -9,13 +9,13 @@ const Navbar = () => {
     /*const [logoutString, setlogoutString] = useState('')*/
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [cart, setCart] = useState();
-    const [cart2, setCart2] = useState('');
+    const [cart2, setCart2] = useState();
     const [cart3, setCart3] = useState([])
     const cartLoaded = useRef(false);
 
     ///sets username inside of navbar and logout if user has logged in
     useEffect(() => {
-        if (!cartLoaded.current) {
+        //if (!cartLoaded.current) {
             let varr = localStorage.getItem('username');
             if (varr === null) {
             } else {
@@ -44,9 +44,9 @@ const Navbar = () => {
                 //console.log(data[0].products[0].productTitle)
                 let arr = data[0].products;
                 /* arr = JSON.stringify(arr);*/
-                console.log('arrLength: ')
-                console.log(arr.length)
-                console.log('arrStringify: ')
+                console.log('arr[0]: ')
+                console.log(arr[0])
+                console.log('arr: ')
                 console.log(arr);
                 setCart(arr)
                 console.log('cart: ');
@@ -54,12 +54,12 @@ const Navbar = () => {
                 setCart2(arr[0])
                 console.log('cart2: ');
                 console.log(cart2);
-                setCart3(prev => [prev, ...arr])
+                setCart3(prev => arr)
                 console.log('cart3: ')
                 console.log(cart3); 
             })
             cartLoaded.current = true;
-        }
+        //}
     }, [cart, cart2, username1, isLoggedIn])
 
     const logOutFunction = () => {

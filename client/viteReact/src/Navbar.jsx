@@ -120,7 +120,11 @@ const Navbar = () => {
                         </svg>
                     </div>
                 }
+                {cart3.length > 0 &&
+                    <div>{cart3[0].productTitle}</div>
+                }
                 {/*}
+                
                 {isLoggedIn && (cart != null) &&
                     <div className={`${styles.dropDown} ${styles.cartDropDown}`}>
                         {cart.products && cart.products.map((productArr) => (

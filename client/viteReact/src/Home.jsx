@@ -6,10 +6,13 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
-import goldProtein from './stylesheets/images/goldProtein.jpg'
 import dynaProtein from './stylesheets/images/dymatizeProtein.jpg'
+import optiCreatine from './stylesheets/images/optiCreatine.jpg'
+import optiPre from './stylesheets/images/optiPre.webp'
+import goldProtein from './stylesheets/images/goldProtein2.jpg'
 import Footer from './Footer'
 import cBumBanner from './stylesheets/images/cbumBanner.jpg'
+import ghostBanner from './stylesheets/images/ghostBanner.jpg'
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useState } from 'react'
@@ -65,7 +68,7 @@ const Home = () => {
                     </SwiperSlide>
                     <SwiperSlide>
                         <div className={styles.imageHolder}>
-                            <img src={cBumBanner} alt="" />
+                            <img src={ghostBanner} alt="" />
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
@@ -162,12 +165,12 @@ const Home = () => {
                         <button>SHOP NOW</button>
                     </Link>
                     <Link to='/category/preworkout'>
-                        <img src={goldProtein} alt="" />
+                        <img src={optiPre} alt="" />
                         <h2>Preworkout</h2>
                         <button>SHOP NOW</button>
                     </Link>
                     <Link to='/category/supplement'>
-                        <img src={goldProtein} alt="" />
+                        <img src={optiCreatine} alt="" />
                         <h2>Supplements</h2>
                         <button>SHOP NOW</button>
                     </Link>

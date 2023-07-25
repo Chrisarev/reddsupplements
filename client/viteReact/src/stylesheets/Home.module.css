@@ -191,11 +191,6 @@
     align-items: center;
 }
 
-.categorySelector img {
-    max-height: 100%;
-    max-width: 100%;
-}
-
 .categorySelector h2 {
     text-align: center;
     font-family: 'Kanit', sans-serif;
@@ -208,6 +203,7 @@
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
+    gap:2vw;
 }
 
 .categoriesHolder button {
@@ -225,6 +221,13 @@
     transition: all 0.1s linear;
     white-space: nowrap;
 }
+
+.categoriesHolder img{
+    width:15vw;
+    height:15vw;
+    object-fit: contain;
+}
+
 @media (max-width:800px) {
     .categorySelector{
         all:unset;
@@ -239,6 +242,10 @@
     }
     .categorySelector button{
         width:5rem;
+    }
+    .categoriesHolder img{
+        width:8rem;
+        height:8rem;
     }
 
 }

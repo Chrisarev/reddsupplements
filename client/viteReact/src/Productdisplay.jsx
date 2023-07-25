@@ -21,15 +21,9 @@ const Productdisplay = (props) => {
     return (
         <div className={styles.productsPanel}>
             <div className={styles.selector}>
-                <button className={styles.selectorOption}>
-                    Protein
-                </button>
-                <button className={styles.selectorOption}>
-                    Preworkout
-                </button>
-                <button className={styles.selectorOption}>
-                    Supplements
-                </button>
+                <Link className={styles.selectorOption} to='/category/protein'>Protein</Link>
+                <Link className={styles.selectorOption} to='/category/preworkout'>Preworkout</Link>
+                <Link className={styles.selectorOption} to='/category/supplement'>Supplements</Link>
             </div>
             {products.map((product) => (
                 <Link to={`/product/${product._id}`}>

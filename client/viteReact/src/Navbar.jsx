@@ -15,7 +15,7 @@ const Navbar = () => {
 
     ///sets username inside of navbar and logout if user has logged in
     useEffect(() => {
-        //if (!cartLoaded.current) {
+        if (!cartLoaded.current) {
             let varr = localStorage.getItem('username');
             if (varr === null) {
             } else {
@@ -59,7 +59,7 @@ const Navbar = () => {
                 console.log(cart3); 
             })
             cartLoaded.current = true;
-        //}
+        }
     }, [cart, cart2, username1, isLoggedIn])
 
     const logOutFunction = () => {

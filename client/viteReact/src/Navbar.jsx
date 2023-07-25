@@ -29,11 +29,9 @@ const Navbar = () => {
                     setIsLoggedIn(false);
                     setCart('');
                     return response;
-                } else if (response.status == 200 || response.status == 304) {
+                } else {
                     setIsLoggedIn(true)
                     return response.json()
-                } else {
-                    return response;
                 }
             }).then((data) => {
                 //console.log(data)

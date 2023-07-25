@@ -11,11 +11,9 @@ const Navbar = () => {
     const [cart, setCart] = useState();
     const [cart2, setCart2] = useState();
     const [cart3, setCart3] = useState([])
-    const cartLoaded = useRef(false);
 
     ///sets username inside of navbar and logout if user has logged in
     useEffect(() => {
-        if (!cartLoaded.current) {
             let varr = localStorage.getItem('username');
             if (varr === null) {
             } else {
@@ -56,8 +54,6 @@ const Navbar = () => {
                 console.log('cart3: ')
                 console.log(cart3); 
             })
-            cartLoaded.current = true;
-        }
     }, [cart, cart2, username1, isLoggedIn])
 
     const logOutFunction = () => {

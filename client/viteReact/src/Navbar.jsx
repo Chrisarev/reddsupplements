@@ -54,7 +54,7 @@ const Navbar = () => {
                 console.log('cart3: ')
                 console.log(cart3); 
             })
-    }, [username1, isLoggedIn])
+    }, [])
 
     const logOutFunction = () => {
         localStorage.removeItem('username')
@@ -123,9 +123,8 @@ const Navbar = () => {
                 {cart3.length > 0 &&
                     <div>{cart3[0].productTitle}</div>
                 }
-                {/*}
                 
-                {isLoggedIn && (cart != null) &&
+                {isLoggedIn && (cart.length > 0) &&
                     <div className={`${styles.dropDown} ${styles.cartDropDown}`}>
                         {cart.products && cart.products.map((productArr) => (
                             <div className={styles.cartProduct}>
@@ -136,7 +135,6 @@ const Navbar = () => {
                         <Link to="/">Test product</Link>
                     </div>
                 }
-            */}
             </div>
         </div>
     )

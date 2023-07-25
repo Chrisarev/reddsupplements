@@ -10,6 +10,7 @@ const Navbar = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [cart, setCart] = useState();
     const [cart2, setCart2] = useState('');
+    const [cart3, setCart3] = useState([])
     const cartLoaded = useRef(false);
 
     ///sets username inside of navbar and logout if user has logged in
@@ -43,14 +44,19 @@ const Navbar = () => {
                 //console.log(data[0].products[0].productTitle)
                 let arr = data[0].products;
                 arr = JSON.stringify(arr);
+                console.log('arrLength: ')
+                console.log(arr.length)
                 console.log('arrStringify: ')
                 console.log(arr);
                 setCart(arr)
                 console.log('cart: ');
                 console.log(cart);
-                setCart2(arr)
+                setCart2(arr[0])
                 console.log('cart2: ');
                 console.log(cart2);
+                setCart3(prev => [prev, ...arr])
+                console.log('cart3: ')
+                console.log(cart3); 
             })
             cartLoaded.current = true;
         }

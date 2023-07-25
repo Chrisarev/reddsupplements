@@ -8,7 +8,7 @@ const Navbar = () => {
     const [username1, setUsername1] = useState('username');
     /*const [logoutString, setlogoutString] = useState('')*/
     const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const [cart, setCart] = useState();
+    const [cart, setCart] = useState([]);
     const [cart2, setCart2] = useState();
     const [cart3, setCart3] = useState([])
 
@@ -44,7 +44,7 @@ const Navbar = () => {
                 console.log(arr[0])
                 console.log('arr: ')
                 console.log(arr);
-                setCart(arr)
+                setCart(prev => arr)
                 console.log('cart: ');
                 console.log(cart);
                 setCart2(arr[0])
@@ -54,7 +54,7 @@ const Navbar = () => {
                 console.log('cart3: ')
                 console.log(cart3); 
             })
-    }, [cart, cart2, username1, isLoggedIn])
+    }, [])
 
     const logOutFunction = () => {
         localStorage.removeItem('username')

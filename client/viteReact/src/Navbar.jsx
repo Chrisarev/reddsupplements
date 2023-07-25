@@ -43,7 +43,7 @@ const Navbar = () => {
                 console.log(data[0].products)
                 //console.log(data[0].products[0].productTitle)
                 let arr = data[0].products;
-                arr = JSON.stringify(arr);
+                /* arr = JSON.stringify(arr);*/
                 console.log('arrLength: ')
                 console.log(arr.length)
                 console.log('arrStringify: ')

@@ -14,46 +14,46 @@ const Navbar = () => {
 
     ///sets username inside of navbar and logout if user has logged in
     useEffect(() => {
-            let varr = localStorage.getItem('username');
-            if (varr === null) {
+        let varr = localStorage.getItem('username');
+        if (varr === null) {
+        } else {
+            setUsername1(prev => varr)
+        }
+        fetch('/api/getCart', {
+            method: 'GET',
+            headers: { "Content-Type": "application/json" }
+        }).then((response) => {
+            if (response.status == 401) {
+                setIsLoggedIn(false);
+                setCart('');
+                return response;
             } else {
-                setUsername1(prev => varr)
+                setIsLoggedIn(true)
+                return response.json()
             }
-            fetch('/api/getCart', {
-                method: 'GET',
-                headers: { "Content-Type": "application/json" }
-            }).then((response) => {
-                if (response.status == 401) {
-                    setIsLoggedIn(false);
-                    setCart('');
-                    return response;
-                } else {
-                    setIsLoggedIn(true)
-                    return response.json()
-                }
-            }).then((data) => {
-                //console.log(data)
-                // console.log(data.products)
-                //console.log(data[0])
-                console.log('data[0].products: ')
-                console.log(data[0].products)
-                //console.log(data[0].products[0].productTitle)
-                let arr = data[0].products;
-                /* arr = JSON.stringify(arr);*/
-                console.log('arr[0]: ')
-                console.log(arr[0])
-                console.log('arr: ')
-                console.log(arr);
-                setCart(prev => arr)
-                console.log('cart: ');
-                console.log(cart);
-                setCart2(arr[0])
-                console.log('cart2: ');
-                console.log(cart2);
-                setCart3(prev => arr)
-                console.log('cart3: ')
-                console.log(cart3); 
-            })
+        }).then((data) => {
+            //console.log(data)
+            // console.log(data.products)
+            //console.log(data[0])
+            console.log('data[0].products: ')
+            console.log(data[0].products)
+            //console.log(data[0].products[0].productTitle)
+            let arr = data[0].products;
+            /* arr = JSON.stringify(arr);*/
+            console.log('arr[0]: ')
+            console.log(arr[0])
+            console.log('arr: ')
+            console.log(arr);
+            setCart(prev => arr)
+            console.log('cart: ');
+            console.log(cart);
+            setCart2(arr[0])
+            console.log('cart2: ');
+            console.log(cart2);
+            setCart3(prev => arr)
+            console.log('cart3: ')
+            console.log(cart3);
+        })
     }, [])
 
     const logOutFunction = () => {
@@ -120,16 +120,19 @@ const Navbar = () => {
                         </svg>
                     </div>
                 }
-                {cart3.length > 0 &&
-                    <div>{cart3[0].productTitle}</div>
+                {cart3.length > 0 && cart.length > 0 && 
+                    <>
+                        <div>{cart3[0].productTitle}</div>
+                        <div>{cart[0].productTitle}</div>
+                    </>
                 }
-                
+
                 {isLoggedIn && (cart.length > 0) &&
                     <div className={`${styles.dropDown} ${styles.cartDropDown}`}>
-                        {cart.products && cart.products.map((productArr) => (
+                        {cart.map((product) => (
                             <div className={styles.cartProduct}>
-                                <Link to="/">{productArr.productTitle}</Link>
-                                <div>{productArr.quantity}</div>
+                                <Link to="/">{product.productTitle}</Link>
+                                <div>{product.quantity}</div>
                             </div>
                         ))}
                         <Link to="/">Test product</Link>

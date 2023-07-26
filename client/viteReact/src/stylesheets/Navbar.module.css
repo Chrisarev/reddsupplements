@@ -113,6 +113,7 @@
     visibility:visible;
 }
 
+
 @media(max-width:800px){
     .links{
         display:none;

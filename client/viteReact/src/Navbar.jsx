@@ -120,14 +120,7 @@ const Navbar = () => {
                         </svg>
                     </div>
                 }
-                {cart3.length > 0 && cart.length > 0 && 
-                    <>
-                        <div>{cart3[0].productTitle}</div>
-                        <div>{cart[0].productTitle}</div>
-                    </>
-                }
-
-                {isLoggedIn && (cart.length > 0) &&
+                {cart.length > 0 &&
                     <div className={`${styles.dropDown} ${styles.cartDropDown}`}>
                         {cart.map((product) => (
                             <div className={styles.cartProduct}>

@@ -125,14 +125,13 @@ const Navbar = () => {
                         {cart.map((product) => (
                             <div className={styles.cartProduct}>
                                 <Link to="/">{product.productTitle}</Link>
-                                <div>{product.quantity}</div>
+                                <div className={styles.productQuantity}>{product.quantity}</div>
                             </div>
                         ))}
                         <Link to="/checkout" className={styles.checkOutButton}>Checkout</Link>
-                        <Link to="/">Test product</Link>
                     </div>
                 }
-
+                {/*
                 <div className={`${styles.dropDown} ${styles.cartDropDown}`}>
                     <div className={styles.cartProduct}>
                         <Link to="/">Dymatize Protein Powder - Rich Chocolate Flavor</Link>
@@ -144,7 +143,7 @@ const Navbar = () => {
                     </div>
                     <Link to="/checkout" className={styles.checkOutButton}>Checkout</Link>
                 </div>
-
+                */}
             </div>
         </div>
     )

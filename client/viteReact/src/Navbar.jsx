@@ -128,9 +128,23 @@ const Navbar = () => {
                                 <div>{product.quantity}</div>
                             </div>
                         ))}
+                        <Link to="/checkout" className={styles.checkOutButton}>Checkout</Link>
                         <Link to="/">Test product</Link>
                     </div>
                 }
+
+                <div className={`${styles.dropDown} ${styles.cartDropDown}`}>
+                    <div className={styles.cartProduct}>
+                        <Link to="/">Dymatize Protein Powder - Rich Chocolate Flavor</Link>
+                        <div className={styles.productQuantity}>Qty x3</div>
+                    </div>
+                    <div className={styles.cartProduct}>
+                        <Link to="/">Dymatize Protein Powder - Rich Chocolate Flavor</Link>
+                        <div className={styles.productQuantity}>Qty x3</div>
+                    </div>
+                    <Link to="/checkout" className={styles.checkOutButton}>Checkout</Link>
+                </div>
+
             </div>
         </div>
     )

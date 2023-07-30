@@ -114,6 +114,7 @@
 
 .cartDropDown{
     margin-right:5rem;
+    overflow-x:hidden;
 }
 
 .cartProduct{
@@ -121,6 +122,8 @@
     flex-direction: column;
     border:0.5px lightgray solid;
     padding:0.5rem;
+    width:100%;
+    
 }
 .cartProduct a{
     height:auto;

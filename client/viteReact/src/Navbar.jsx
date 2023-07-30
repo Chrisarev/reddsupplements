@@ -125,7 +125,7 @@ const Navbar = () => {
                         {cart.map((product) => (
                             <div className={styles.cartProduct}>
                                 <Link to="/">{product.productTitle}</Link>
-                                <div className={styles.productQuantity}>{product.quantity}</div>
+                                <div className={styles.productQuantity}>Qty x{product.quantity}</div>
                             </div>
                         ))}
                         <Link to="/checkout" className={styles.checkOutButton}>Checkout</Link>

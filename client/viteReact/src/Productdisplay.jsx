@@ -16,7 +16,7 @@ const Productdisplay = (props) => {
             setProducts(prev => data);
             console.log(products); 
         })
-    }, [products])
+    }, [])
 
 
     return (
@@ -31,7 +31,7 @@ const Productdisplay = (props) => {
                     <div className={styles.product}>
                         <img src={product.image} alt="productImage" />
                         <h2>{product.productTitle}</h2>
-                        <p><span>${String(product.productPrevPrice)}</span>${product.productPrice.toString()}</p>
+                        <p><span>${String(product.productPrevPrice)}</span>${product.productPrice.$numberDecimal}</p>
                     </div>
                 </Link>
             ))}

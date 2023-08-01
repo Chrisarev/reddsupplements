@@ -1,5 +1,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema; 
+const { BSON } = require('mongodb');
+const { Decimal128 } = require('mongodb');
 const Review = require('./review')
 const ImageSchema = new Schema({
     url:String
@@ -11,7 +13,7 @@ ImageSchema.virtual('thumbnail').get(function() {
 
 const ProductSchema = new Schema({
     productTitle:String, 
-    productPrice:String,
+    productPrice: Decimal128, 
     productPrevPrice:String, 
     productDesc:String,
     productCategory:String, 

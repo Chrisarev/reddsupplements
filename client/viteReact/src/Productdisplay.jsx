@@ -30,7 +30,7 @@ const Productdisplay = (props) => {
                     <div className={styles.product}>
                         <img src={product.image} alt="productImage" />
                         <h2>{product.productTitle}</h2>
-                        <p><span>${product.productPrevPrice}</span>${product.productPrice}</p>
+                        <p><span>${String(product.productPrevPrice)}</span>${String(product.productPrice)}</p>
                     </div>
                 </Link>
             ))}

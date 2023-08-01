@@ -14,6 +14,7 @@ const Productdisplay = (props) => {
             return response.json()
         }).then((data) => {
             setProducts(prev => data);
+            console.log(products); 
         })
     }, [products])
 

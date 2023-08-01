@@ -206,7 +206,7 @@ app.post('/api/addCart', async (req, res) => {
                         productTitle: productNew.productTitle,
                         quantity: productQuantity,
                         productIMG: productNew.image,
-                        productPrice: NumberDecimal(productNew.productPrice)
+                        productPrice: $toDecimal(productNew.productPrice)
                     }
                 }
             }

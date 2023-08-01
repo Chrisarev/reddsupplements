@@ -12,7 +12,6 @@
     font-family: 'Kanit', sans-serif;
     font-weight: 500;
     padding-left:1rem;
-    height:4rem;
 }
 
 .flexContainer{
@@ -26,8 +25,8 @@
 .productsPanel{
     width:50%;
     min-width:40rem;
-    border:1px solid lightgray; 
     min-height:70vh;
+    
 }
 
 .subHeader{
@@ -79,28 +78,34 @@
 .orderSummary{
     width:25%;
     min-width:30rem;
-    border:1px solid lightgray;
     min-height:70vh;
 }
 
 .orderSummary h2{
     margin:0;padding:0;
     margin:3rem 0;
-    font-size: clamp(1rem, 0.7vw + 0.7rem, 7rem);
+    font-size: clamp(1rem, 0.9vw + 0.9rem, 7rem);
     color: black;
     font-family: 'Kanit', sans-serif;
     font-weight: 500;
     padding-left:1rem;
-    height:4rem;
-    line-height: 4rem;
+}
+
+.orderSummary .subHeader{
+    padding-left:2rem;
+}
+.orderInfo{
+    padding:1rem 0;
+    border:1px solid rgb(221, 221, 221);
 }
 .total{
     color:black;
     font-family: 'Kanit', sans-serif;
     font-weight: 500;
     font-size: clamp(1rem,1vw + 1rem, 1.2rem);
-    padding-left:10%;
+    padding-left:2rem;
 }
+
 .payPrompt{
     display:flex;
     align-items: center;

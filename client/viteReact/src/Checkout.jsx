@@ -5,7 +5,7 @@ import goldProtein from './stylesheets/images/goldProtein.jpg'
 
 const Checkout = () => {
     const [cart, setCart] = useState([])
-    const [subtotal, setSubtotal] = useState(0); 
+    const [subtotal, setSubtotal] = useState(0);
     const [tax, setTax] = useState(0);
     const [shipping, setShipping] = useState(0);
     const [total, setTotal] = useState(0);
@@ -33,7 +33,7 @@ const Checkout = () => {
             <Navbar />
             <div className={styles.flexContainer}>
                 <div className={styles.productsPanel}>
-                <h1>Checkout</h1>
+                    <h1>Checkout</h1>
                     <h2 className={styles.subHeader}>Items</h2>
                     {cart.length > 0 && cart.map((product) => (
                         <div className={styles.product}>
@@ -55,11 +55,13 @@ const Checkout = () => {
                     </div>
                 </div>
                 <div className={styles.orderSummary}>
-                <h2>Summary</h2>
-                    <div className={styles.subHeader}>Order subtotal: ${subtotal}</div>
-                    <div className={styles.subHeader}>Tax: ${tax}</div>
-                    <div className={styles.subHeader}>Shipping: ${shipping}</div>
-                    <div className={styles.total}>Order Total: ${total}</div>
+                    <h2>Summary</h2>
+                    <div className={styles.orderInfo}>
+                        <div className={styles.subHeader}>Order subtotal: ${subtotal}</div>
+                        <div className={styles.subHeader}>Tax: ${tax}</div>
+                        <div className={styles.subHeader}>Shipping: ${shipping}</div>
+                        <div className={styles.total}>Order Total: ${total}</div>
+                    </div>
                 </div>
             </div>
             <div className={styles.payPrompt}>

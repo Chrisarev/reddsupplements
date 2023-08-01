@@ -1,0 +1,58 @@
+import styles from './stylesheets/Checkout.module.css';
+import { useState, useEffect } from 'react';
+import Navbar from './Navbar'
+import goldProtein from './stylesheets/images/goldProtein.jpg'
+
+const Checkout = () => {
+    const [cart, setCart] = useState([])
+    useEffect(() => {
+        fetch('/api/getCart', {
+            method: 'GET',
+            headers: { "Content-Type": "application/json" }
+        }).then((response) => {
+            if (response.status == 401) {
+                setIsLoggedIn(false);
+                setCart('');
+                return response;
+            } else {
+                return response.json()
+            }
+        }).then((data) => {
+            let arr = data[0].products;
+            setCart(prev => arr)
+        })
+    }, [])
+
+    return (
+        <div className={styles.panel}>
+            <Navbar />
+            <h1>Checkout</h1>
+            <div className={styles.flexContainer}>
+                <div className={styles.productsPanel}>
+                    <h2 className={styles.subHeader}>Items</h2>
+                    {cart.length > 0 && cart.map((product) => (
+                        <div className={styles.product}>
+                            <img className={styles.productIMG} src={product.productIMG} alt="" />
+                            <div className={styles.productTitle}>{product.productTitle}</div>
+                            <div className={styles.productQuantity}>Qty x{product.quantity}</div>
+                        </div>
+                    ))}
+                    <div className={styles.product}>
+                        <img className={styles.productIMG} src={goldProtein} alt="" />
+                        <div className={styles.productTitle}>Gold Whey Protein</div>
+                        <div className={styles.productQuantity}>Qty x3</div>
+                    </div>
+                </div>
+                <div className={styles.orderSummary}>
+
+                </div>
+            </div>
+            <div className={styles.payPrompt}>
+                <button className={styles.payButton}>Complete purchase</button>
+            </div>
+        </div>
+    )
+}
+
+export default Checkout;
+

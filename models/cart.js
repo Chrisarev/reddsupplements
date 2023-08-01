@@ -1,12 +1,16 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const User = require('./user')
-const Product = require('./product')
+const Product = require('./product');
+const { BSON } = require('mongodb');
+const { Decimal128 } = require('mongodb');
 
 const CartSchema = new Schema({
     products: [{
             productTitle: String,
-            quantity:String
+            quantity:String,
+            productIMG: String,
+            productPrice: Decimal128
         }],
     user: {
         type: Schema.Types.ObjectId,

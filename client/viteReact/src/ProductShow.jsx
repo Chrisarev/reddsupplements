@@ -102,7 +102,7 @@ const ProductShow = () => {
                             <h1 className={styles.productTitle}>
                                 {product.productTitle}
                             </h1>
-                            <p className={styles.productPrice}><span>${product.productPrevPrice}</span>${product.productPrice}</p>
+                            <p className={styles.productPrice}><span>${product.productPrevPrice}</span>${product.productPrice.$numberDecimal}</p>
                             <p className={styles.productDesc}>{product.productDesc}</p>
                             <form onSubmit={handleFormSubmit}>
                                 <label htmlFor="quantity">Quantity</label>

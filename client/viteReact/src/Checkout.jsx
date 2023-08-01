@@ -5,6 +5,11 @@ import goldProtein from './stylesheets/images/goldProtein.jpg'
 
 const Checkout = () => {
     const [cart, setCart] = useState([])
+    const [subtotal, setSubtotal] = useState(0); 
+    const [tax, setTax] = useState(0);
+    const [shipping, setShipping] = useState(0);
+    const [total, setTotal] = useState(0);
+
     useEffect(() => {
         fetch('/api/getCart', {
             method: 'GET',
@@ -26,25 +31,35 @@ const Checkout = () => {
     return (
         <div className={styles.panel}>
             <Navbar />
-            <h1>Checkout</h1>
             <div className={styles.flexContainer}>
                 <div className={styles.productsPanel}>
+                <h1>Checkout</h1>
                     <h2 className={styles.subHeader}>Items</h2>
                     {cart.length > 0 && cart.map((product) => (
                         <div className={styles.product}>
                             <img className={styles.productIMG} src={product.productIMG} alt="" />
-                            <div className={styles.productTitle}>{product.productTitle}</div>
-                            <div className={styles.productQuantity}>Qty x{product.quantity}</div>
+                            <div className={styles.productInfo}>
+                                <div className={styles.productTitle}>{product.productTitle}</div>
+                                <div className={styles.productQuantity}>Qty x{product.quantity}</div>
+                            </div>
+                            <div className={styles.totalProductPrice}>${product.productPrice.$numberDecimal}</div>
                         </div>
                     ))}
                     <div className={styles.product}>
                         <img className={styles.productIMG} src={goldProtein} alt="" />
-                        <div className={styles.productTitle}>Gold Whey Protein</div>
-                        <div className={styles.productQuantity}>Qty x3</div>
+                        <div className={styles.productInfo}>
+                            <div className={styles.productTitle}>Gold Whey Protein</div>
+                            <div className={styles.productQuantity}>Qty x3</div>
+                        </div>
+                        <div className={styles.totalProductPrice}>$35.00</div>
                     </div>
                 </div>
                 <div className={styles.orderSummary}>
-
+                <h2>Summary</h2>
+                    <div className={styles.subHeader}>Order subtotal: ${subtotal}</div>
+                    <div className={styles.subHeader}>Tax: ${tax}</div>
+                    <div className={styles.subHeader}>Shipping: ${shipping}</div>
+                    <div className={styles.total}>Order Total: ${total}</div>
                 </div>
             </div>
             <div className={styles.payPrompt}>

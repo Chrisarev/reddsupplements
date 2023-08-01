@@ -4,11 +4,15 @@
     flex-direction: column;
 }
 .panel h1{
-    text-align: center;
+    margin:0;
+    padding:0;
+    margin:3rem 0;
     font-size: clamp(1rem, 1.5vw + 1.5rem, 7rem);
     color: black;
     font-family: 'Kanit', sans-serif;
     font-weight: 500;
+    padding-left:1rem;
+    height:4rem;
 }
 
 .flexContainer{
@@ -28,7 +32,6 @@
 
 .subHeader{
     color:rgb(128, 128, 128);
-    font-size: clamp(1rem, 0.5vw + 0.5rem, 1rem);
     font-family: 'Kanit', sans-serif;
     font-weight: 500;
     font-size: clamp(1rem,1vw + 1rem, 1.2rem);
@@ -37,18 +40,42 @@
 
 .product{
     display:flex;
+    height: 10rem;
+    border:1px solid rgb(221, 221, 221);
 }
+
+.productInfo{
+    display:flex;
+    flex-direction: column;
+    width:70%;
+    padding-top:1rem;
+}
+
+
 .productIMG{
 
 }
 
 .productTitle{
-
+    font-family: 'Kanit', sans-serif;
+    font-weight: 500;
+    font-size: clamp(1rem,1vw + 1rem, 1.2rem);
 }
 
 .productQuantity{
-
+    font-family: 'Kanit', sans-serif;
+    font-weight: 500;
+    font-size: clamp(1rem,1vw + 1rem, 1.2rem);
 }
+
+.totalProductPrice{
+    padding-top:1rem;
+    font-family: 'Kanit', sans-serif;
+    font-weight: 500;
+    font-size: clamp(1rem,1vw + 1rem, 1.2rem);
+    padding-right:5rem;
+}
+
 .orderSummary{
     width:25%;
     min-width:30rem;
@@ -56,6 +83,24 @@
     min-height:70vh;
 }
 
+.orderSummary h2{
+    margin:0;padding:0;
+    margin:3rem 0;
+    font-size: clamp(1rem, 0.7vw + 0.7rem, 7rem);
+    color: black;
+    font-family: 'Kanit', sans-serif;
+    font-weight: 500;
+    padding-left:1rem;
+    height:4rem;
+    line-height: 4rem;
+}
+.total{
+    color:black;
+    font-family: 'Kanit', sans-serif;
+    font-weight: 500;
+    font-size: clamp(1rem,1vw + 1rem, 1.2rem);
+    padding-left:10%;
+}
 .payPrompt{
     display:flex;
     align-items: center;

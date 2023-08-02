@@ -10,6 +10,7 @@ import dynaProtein from './stylesheets/images/dymatizeProtein.jpg'
 import optiCreatine from './stylesheets/images/optiCreatine.jpg'
 import optiPre from './stylesheets/images/optiPre.webp'
 import goldProtein from './stylesheets/images/goldProtein2.jpg'
+import bumPre from './stylesheets/images/bumPre.jpg'
 import Footer from './Footer'
 import cBumBanner from './stylesheets/images/cbumBanner.jpg'
 import ghostBanner from './stylesheets/images/ghostBanner.jpg'
@@ -90,15 +91,7 @@ const Home = () => {
                     onSwiper={(swiper) => console.log(swiper)}
                     onSlideChange={() => console.log('Slide change')}
                 >
-                    <SwiperSlide>
-                        <Link to='/product/dsadsadsas' className={styles.productHolder}>
-                            <div className={styles.imgHolder}>
-                                <img src={goldProtein} alt="" />
-                            </div>
-                            <p>Gold's Protein</p>
-                            <p className={styles.productPrice}>$30.00</p>
-                        </Link>
-                    </SwiperSlide>
+
                     <SwiperSlide>
                         <Link to='/product/64b48061e6de85ae357e1884' className={styles.productHolder}>
                             <div className={styles.imgHolder}>
@@ -125,17 +118,19 @@ const Home = () => {
                     <SwiperSlide>
                         <Link to='/product/dsadsadsas' className={styles.productHolder}>
                             <div className={styles.imgHolder}>
-                                <img src={goldProtein} alt="" />
+                                <img src={optiCreatine} alt="" />
                             </div>
-                            <p>Gold's Protein</p>
-                            <p className={styles.productPrice}>$30.00</p>
+                            <p>Optimum Nutrition Micronized Creatine Monohydrate Powder 60 Servings</p>
+                            <p className={styles.productPrice}>$25.00</p>
                         </Link>
                     </SwiperSlide>
                     <SwiperSlide>
                         <Link to='/product/dsadsadsas' className={styles.productHolder}>
-                            <img src={goldProtein} alt="" />
-                            <p>Gold's Protein</p>
-                            <p className={styles.productPrice}>$30.00</p>
+                            <div className={styles.imgHolder}>
+                                <img src={bumPre} alt="" />
+                            </div>
+                            <p>Thavage (Green Crush) Cbum Preworkout for Working Out, Hydration, Mental Focus & Energy - 40 Servings</p>
+                            <p className={styles.productPrice}>$50.00</p>
                         </Link>
                     </SwiperSlide>
                     <SwiperSlide>

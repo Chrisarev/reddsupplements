@@ -2,6 +2,7 @@
     min-height:100vh;
     display:flex;
     flex-direction: column;
+    flex-wrap:wrap;
 }
 .panel h1{
     margin:0;
@@ -126,4 +127,21 @@
     font-weight: 500;
     font-size: clamp(1rem,1vw + 1rem, 1.2rem);
     cursor:pointer;
+}
+
+@media (max-width:700px){
+    .panel{
+        flex-wrap:wrap;
+    }
+    .productsPanel{
+        width:100%;
+        min-height:auto;
+    }
+    .orderSummary{
+        width:100%;
+        min-height:auto;
+    }
+    .payPrompt{
+        width:100%;
+    }
 }

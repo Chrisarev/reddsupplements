@@ -165,7 +165,13 @@
     .links a{
         display:none;
     }
+
     :root{
         --navbar-height:3rem;
+    }
+    .navbar{
+        width:100vw;
+        padding:0;
+        justify-content: space-evenly;
     }
 }

@@ -66,6 +66,7 @@
     font-family: 'Kanit', sans-serif;
     font-weight: 500;
     font-size: clamp(1rem,1vw + 1rem, 1.2rem);
+    color:rgb(128, 128, 128);
 }
 
 .totalProductPrice{
@@ -142,6 +143,12 @@
         min-height:auto;
     }
     .payPrompt{
+        width:100%;
+    }
+    .productInfo{
+
+    }
+    .totalProductPrice{
         width:100%;
     }
 }

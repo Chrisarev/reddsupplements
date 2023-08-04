@@ -7,7 +7,7 @@ const Checkout = () => {
     const [cart, setCart] = useState([])
     const [subtotal, setSubtotal] = useState(0);
     const [tax, setTax] = useState(0);
-    const [shipping, setShipping] = useState(0);
+    const [shipping, setShipping] = useState(5);
     const [total, setTotal] = useState(0);
 
     useEffect(() => {
@@ -24,10 +24,15 @@ const Checkout = () => {
             }
         }).then((data) => {
             let arr = data[0].products;
+            console.log(data[0].products)
             setCart(prev => arr)
+            for(i=0; i < cart.length; i++ ){
+                setSubtotal(prev => prev + cart[i].productPrice.$numberDecimal)
+            }
         })
     }, [])
 
+    
     return (
         <div className={styles.panel}>
             <Navbar />

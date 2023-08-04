@@ -27,7 +27,7 @@ const Checkout = () => {
             setCart(prev => arr)
             let sub = 0; 
             for(let i=0; i < data[0].products.length; i++ ){
-                sub = sub + parseFloat(data[0].products[i].productPrice.$numberDecimal).toFixed(2)
+                sub = sub + parseFloat(data[0].products[i].productPrice.$numberDecimal)
                 console.log(sub); 
             }
             setSubtotal(sub);

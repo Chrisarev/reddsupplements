@@ -31,8 +31,8 @@ const Checkout = () => {
                 console.log(sub); 
             }
             setSubtotal(sub);
-            setTax(subtotal * 0.08)
-            setTotal(subtotal + tax)
+            setTax(parseFloat(subtotal) * 0.08)
+            setTotal(parseFloat(subtotal) + parseFloat(tax))
         })
     }, [])
 

@@ -29,7 +29,7 @@ const Checkout = () => {
             console.log(data.length)
             let sub = 0; 
             for(let i=0; i < data[0].products.length; i++ ){
-                sub = sub + data[0].products[i].productPrice.$numberDecimal
+                sub = sub + parseFloat(data[0].products[i].productPrice.$numberDecimal)
                 console.log(sub); 
             }
             setSubtotal(sub); 

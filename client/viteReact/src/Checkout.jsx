@@ -26,9 +26,13 @@ const Checkout = () => {
             let arr = data[0].products;
             console.log(data[0].products)
             setCart(prev => arr)
-            for(let i=0; i < cart.length; i++ ){
-                setSubtotal(prev => prev + cart[i].productPrice)
+            console.log(cart.length)
+            let sub = 0; 
+            for(let i=0; i < data.length; i++ ){
+                sub = sub + data[i].productPrice.$numberDecimal
             }
+            setSubtotal(sub); 
+            console.log("subtotal:" + subtotal)
         })
     }, [])
 

@@ -24,16 +24,15 @@ const Checkout = () => {
             }
         }).then((data) => {
             let arr = data[0].products;
-            console.log(data[0].products)
             setCart(prev => arr)
-            console.log(data.length)
             let sub = 0; 
             for(let i=0; i < data[0].products.length; i++ ){
-                sub = sub + parseFloat(data[0].products[i].productPrice.$numberDecimal)
+                sub = sub + parseFloat(data[0].products[i].productPrice.$numberDecimal).toFixed(2)
                 console.log(sub); 
             }
-            setSubtotal(sub); 
-            console.log("subtotal:" + subtotal)
+            setSubtotal(sub);
+            setTax(subtotal * 0.08)
+            setTotal(subtotal + tax)
         })
     }, [])
 

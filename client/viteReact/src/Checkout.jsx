@@ -25,18 +25,18 @@ const Checkout = () => {
         }).then((data) => {
             let arr = data[0].products;
             setCart(prev => arr)
-            let sub = 0; 
-            for(let i=0; i < data[0].products.length; i++ ){
+            let sub = 0;
+            for (let i = 0; i < data[0].products.length; i++) {
                 sub = sub + parseFloat(data[0].products[i].productPrice.$numberDecimal)
-                console.log(sub); 
+                console.log(sub);
             }
             setSubtotal(sub);
-            setTax(parseFloat(subtotal) * 0.08)
-            setTotal(parseFloat(subtotal) + parseFloat(tax))
+            setTax(sub * 0.08)
+            setTotal(sub + parseFloat(tax))
         })
     }, [])
 
-    
+
     return (
         <div className={styles.panel}>
             <Navbar />

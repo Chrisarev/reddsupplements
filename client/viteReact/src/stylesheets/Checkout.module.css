@@ -51,7 +51,6 @@
     padding-top:1rem;
 }
 
-
 .productIMG{
 
 }
@@ -130,25 +129,39 @@
     cursor:pointer;
 }
 
-@media (max-width:700px){
+@media (max-width:800px){
     .panel{
         flex-wrap:wrap;
+    }
+    .panel h1{
+        margin:1.5rem;
     }
     .productsPanel{
         width:100%;
         min-height:auto;
     }
+    .productTitle{
+        font-size: clamp(0.5rem,1vw + 1rem, 1rem);
+
+    }
+    .productQuantity{
+        font-size: clamp(0.5rem,1vw + 1rem, 1rem);
+    }
     .orderSummary{
         width:100%;
         min-height:auto;
     }
-    .payPrompt{
+    .payPrompt, .totalProductPrice{
         width:100%;
     }
-    .productInfo{
+    .totalProductPrice, .orderSummary .subHeader, .total{
+        font-size: clamp(0.5rem,1vw + 1rem, 1rem);
+    }
+    .orderSummary h2{
+        margin:1.5rem;
+    }
+    .orderSummary .subHeader, .total{
+        padding-left:3rem;
+    }
 
-    }
-    .totalProductPrice{
-        width:100%;
-    }
 }

@@ -94,6 +94,15 @@ const Home = () => {
                 >
 
                     <SwiperSlide>
+                        <Link to='/product/64c99cb5e8909086e1626a1e' className={styles.productHolder}>
+                            <div className={styles.imgHolder}>
+                                <img src={bumPre} alt="" />
+                            </div>
+                            <p>Thavage (Green Crush) Cbum Preworkout for Working Out, Hydration, Mental Focus & Energy - 40 Servings</p>
+                            <p className={styles.productPrice}>$50.00</p>
+                        </Link>
+                    </SwiperSlide>
+                    <SwiperSlide>
                         <Link to='/product/64b48061e6de85ae357e1884' className={styles.productHolder}>
                             <div className={styles.imgHolder}>
                                 <img src={dynaProtein} alt="" />
@@ -123,15 +132,6 @@ const Home = () => {
                             </div>
                             <p>Optimum Nutrition Micronized Creatine Monohydrate Powder 60 Servings</p>
                             <p className={styles.productPrice}>$25.00</p>
-                        </Link>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Link to='/product/64c99cb5e8909086e1626a1e' className={styles.productHolder}>
-                            <div className={styles.imgHolder}>
-                                <img src={bumPre} alt="" />
-                            </div>
-                            <p>Thavage (Green Crush) Cbum Preworkout for Working Out, Hydration, Mental Focus & Energy - 40 Servings</p>
-                            <p className={styles.productPrice}>$50.00</p>
                         </Link>
                     </SwiperSlide>
                 </Swiper>

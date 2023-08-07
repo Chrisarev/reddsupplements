@@ -95,9 +95,9 @@
 }
 
 .preDiscountPrice {
+    margin-right:0.25rem;
     color: red;
     text-decoration: line-through;
-
 }
 
 @media(max-width:800px) {
@@ -163,9 +163,11 @@
 
 @media(max-width:800px) {
     .trainingSection {
-        height: 25vh;
+        height: 20vh;
     }
-
+    .trainingSection p{
+        font-size: clamp(1rem, 1vw + 1rem, 3rem);
+    }
     .trainingSection button {
         width: 7rem;
         white-space: nowrap;
@@ -175,7 +177,7 @@
     }
 
     .trainingSection .content {
-        top: 30%;
+        top: 20%;
     }
 }
 

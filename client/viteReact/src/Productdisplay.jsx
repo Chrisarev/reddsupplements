@@ -14,7 +14,7 @@ const Productdisplay = (props) => {
             return response.json()
         }).then((data) => {
             setProducts(prev => data);
-            console.log(products); 
+            console.log(products);
         })
     }, [])
 
@@ -35,6 +35,15 @@ const Productdisplay = (props) => {
                     </div>
                 </Link>
             ))}
+            <Link to='/'>
+                <div className={styles.product}>
+                    <img src={dyna} alt="productImage" />
+                    <h2>This is a long product title so i can test the overflow properties i set in css
+                        this is even more text actually because i need it to overflow
+                    </h2>
+                    <p><span>$35.00</span>$30.00</p>
+                </div>
+            </Link>
         </div>
     )
 }

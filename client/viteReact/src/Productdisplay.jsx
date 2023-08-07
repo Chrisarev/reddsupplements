@@ -35,66 +35,6 @@ const Productdisplay = (props) => {
                     </div>
                 </Link>
             ))}
-            <Link to="/">
-                <div className={styles.product}>
-                    <div className={styles.imageHolder}>
-                        <img src={dyna} alt="" />
-                    </div>
-                    <h2>Gold Protein but longer title to test h2 overflow AAA!!!!</h2>
-                    <p><span>$50.00</span>$45.00</p>
-                </div>
-            </Link>
-            <Link to="/">
-                <div className={styles.product}>
-                <div className={styles.imageHolder}>
-                        <img src={goldProtein} alt="" />
-                    </div>
-                    <h2>Gold Protein but longer title to test h2 overflow AAA!!!!</h2>
-                    <p><span>$50.00</span>$45.00</p>
-                </div>
-            </Link>
-            <Link to="/">
-                <div className={styles.product}>
-                    <img src={goldProtein} alt="" />
-                    <h2>Gold Protein but longer title to test h2 overflow AAA!!!!</h2>
-                    <p><span>$50.00</span>$45.00</p>
-                </div>
-            </Link>
-            <Link to="/">
-                <div className={styles.product}>
-                    <img src={goldProtein} alt="" />
-                    <h2>Gold Protein but longer title to test h2 overflow AAA!!!!</h2>
-                    <p><span>$50.00</span>$45.00</p>
-                </div>
-            </Link>
-            <Link to="/">
-                <div className={styles.product}>
-                    <img src={goldProtein} alt="" />
-                    <h2>Gold Protein but longer title to test h2 overflow AAA!!!!</h2>
-                    <p><span>$50.00</span>$45.00</p>
-                </div>
-            </Link>
-            <Link to="/">
-                <div className={styles.product}>
-                    <img src={goldProtein} alt="" />
-                    <h2>Gold Protein but longer title to test h2 overflow AAA!!!!</h2>
-                    <p><span>$50.00</span>$45.00</p>
-                </div>
-            </Link>
-            <Link to="/">
-                <div className={styles.product}>
-                    <img src={goldProtein} alt="" />
-                    <h2>Gold Protein</h2>
-                    <p><span>$50.00</span>$45.00</p>
-                </div>
-            </Link>
-            <Link to="/">
-                <div className={styles.product}>
-                    <img src={goldProtein} alt="" />
-                    <h2>Gold Protein</h2>
-                    <p><span>$50.00</span>$45.00</p>
-                </div>
-            </Link>
         </div>
     )
 }

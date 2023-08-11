@@ -17,7 +17,7 @@ const Productdisplay = (props) => {
             console.log(products);
         })
     }, [])
-
+    
 
     return (
         <div className={styles.productsPanel}>

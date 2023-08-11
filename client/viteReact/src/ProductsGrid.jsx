@@ -12,7 +12,7 @@ const ProductsGrid = () => {
         <>
             <Navbar />
             <div className={styles.optionsSelector}></div>
-            <Productdisplay tag={category} />
+            <Productdisplay key={category} tag={category} />
         </>
     )
 }

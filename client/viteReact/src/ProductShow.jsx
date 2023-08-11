@@ -7,8 +7,9 @@ import goldProtein from './stylesheets/images/goldProtein.jpg'
 import creatine from './stylesheets/images/optiCreatine.jpg'
 import dyma from './stylesheets/images/dymatizeProtein.jpg'
 import axios from "axios";
+import { useNavigate } from 'react-router-dom';
 const ProductShow = () => {
-
+    let navigate = useNavigate(); 
     const { prodID } = useParams();
     const [product, setProduct] = useState();
     const [productQuantity, setProductQuantity] = useState('0');
@@ -45,6 +46,10 @@ const ProductShow = () => {
                 console.log('added to cart')
                 setIsPending(false);
                 setCartAddStatus(true);
+                return response;
+            }
+            if(response.status == 500){
+                navigate('/login')
                 return response;
             }
             setIsPending(false);

@@ -193,7 +193,6 @@ app.post('/api/logout', (req, res) => {
 
 app.post('/api/addCart', async (req, res) => {
     console.log(req.body);
-
     try {
         const { productQuantity, prodID } = req.body;
         const productNew = await Product.findById({ _id: prodID });

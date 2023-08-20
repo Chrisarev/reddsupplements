@@ -49,13 +49,13 @@ const ProductShow = () => {
         }).then((response) => {
             if (response.status == 204) {
                 console.log('added to cart')
-                const temp = {
-                    productTitle: product.productTitle,
-                    quantity: productQuantity,
-                    productIMG: product.image,
-                    productPrice: product.productPrice,
-                    _id: prodID
-                }
+                let temp = {};
+                temp.productTitle = product.productTitle;
+                temp.quantity = productQuantity;
+                temp.productIMG = product.image;
+                temp.productPrice = product.productPrice;
+                temp._id = prodID;
+                console.log('temp' + temp);
                 setCart2({
                     cart2: cart2.concat(temp)
                 })

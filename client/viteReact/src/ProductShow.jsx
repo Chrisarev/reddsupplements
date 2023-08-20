@@ -13,14 +13,14 @@ import { CartContext } from './CartContext';
 
 
 const ProductShow = () => {
-    let navigate = useNavigate(); 
+    let navigate = useNavigate();
     const { prodID } = useParams();
     const [product, setProduct] = useState();
     const [productQuantity, setProductQuantity] = useState('0');
     const [productVariation, setProductVariation] = useState('');
     const [cartAddStatus, setCartAddStatus] = useState(false);
     const [isPending, setIsPending] = useState(false);
-    const {cart2, setCart2} = useContext(CartContext)
+    const { cart2, setCart2 } = useContext(CartContext)
 
     useEffect(() => {
         fetch(`/api/product/${prodID}`, {
@@ -49,12 +49,21 @@ const ProductShow = () => {
         }).then((response) => {
             if (response.status == 204) {
                 console.log('added to cart')
-                setCart2({cart2: cart2.concat(product)})
+                const temp = {
+                    productTitle: product.productTitle,
+                    quantity: productQuantity,
+                    productIMG: product.image,
+                    productPrice: product.productPrice,
+                    _id: prodID
+                }
+                setCart2({
+                    cart2: cart2.concat(temp)
+                })
                 setIsPending(false);
                 setCartAddStatus(true);
                 return response;
             }
-            if(response.status == 500){
+            if (response.status == 500) {
                 navigate('/login')
                 return response;
             }
@@ -78,10 +87,10 @@ const ProductShow = () => {
                         </h1>
                         <p className={styles.productPrice}><span>$40.00</span>$35.00</p>
                         <p className={styles.productDesc}>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit reprehenderit vitae repellat atque similique officiis natus sunt ipsum unde! Esse, porro ducimus totam iste quaerat natus omnis quos eos sequi!
-                        Veniam totam laborum architecto quisquam dolorum culpa quod perspiciatis voluptates? Inventore autem reiciendis incidunt deleniti quasi suscipit provident sequi iure, sit fugit error fugiat sapiente, magni dignissimos, doloremque facere illum.
-                        Neque nulla ex magnam sed. Sint molestiae vel earum quo totam eligendi numquam est dolores ducimus dolore aliquid nihil nostrum necessitatibus vitae, magnam cupiditate placeat repudiandae ex incidunt. Quasi, molestiae.
-                        Harum deleniti molestiae quis est ex alias ad nostrum itaque impedit exercitationem nobis, maiores, architecto quae! Enim similique rerum nam? Quae enim impedit, error non consectetur voluptas quibusdam numquam sapiente?
-                        Tenetur recusandae dolor officiis ab dignissimos explicabo iste illum quidem quis culpa perspiciatis aliquid error natus, inventore veniam architecto tempore ad mollitia et? Id illo expedita voluptatem eaque totam atque.</p>
+                            Veniam totam laborum architecto quisquam dolorum culpa quod perspiciatis voluptates? Inventore autem reiciendis incidunt deleniti quasi suscipit provident sequi iure, sit fugit error fugiat sapiente, magni dignissimos, doloremque facere illum.
+                            Neque nulla ex magnam sed. Sint molestiae vel earum quo totam eligendi numquam est dolores ducimus dolore aliquid nihil nostrum necessitatibus vitae, magnam cupiditate placeat repudiandae ex incidunt. Quasi, molestiae.
+                            Harum deleniti molestiae quis est ex alias ad nostrum itaque impedit exercitationem nobis, maiores, architecto quae! Enim similique rerum nam? Quae enim impedit, error non consectetur voluptas quibusdam numquam sapiente?
+                            Tenetur recusandae dolor officiis ab dignissimos explicabo iste illum quidem quis culpa perspiciatis aliquid error natus, inventore veniam architecto tempore ad mollitia et? Id illo expedita voluptatem eaque totam atque.</p>
                         <form onSubmit={handleFormSubmit}>
                             <label htmlFor="quantity">Quantity</label>
                             <select className={styles.quantitySelect} name="quantity" value={productQuantity}

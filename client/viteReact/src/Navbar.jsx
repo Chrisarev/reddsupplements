@@ -35,6 +35,7 @@ const Navbar = () => {
         }).then((data) => {
             let arr = data[0].products;
             setCart2(prev => arr)
+            console.log(cart2)
         })
     }, [])
     

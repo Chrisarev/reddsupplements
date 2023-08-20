@@ -8,6 +8,10 @@ import creatine from './stylesheets/images/optiCreatine.jpg'
 import dyma from './stylesheets/images/dymatizeProtein.jpg'
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { CartContext } from './CartContext';
+
+
 const ProductShow = () => {
     let navigate = useNavigate(); 
     const { prodID } = useParams();
@@ -16,6 +20,7 @@ const ProductShow = () => {
     const [productVariation, setProductVariation] = useState('');
     const [cartAddStatus, setCartAddStatus] = useState(false);
     const [isPending, setIsPending] = useState(false);
+    const {cart2, setCart2} = useContext(CartContext)
 
     useEffect(() => {
         fetch(`/api/product/${prodID}`, {
@@ -36,7 +41,7 @@ const ProductShow = () => {
         console.log(FD); */
         const data = { productQuantity, prodID }
         setIsPending(true);
-
+        
         fetch('/api/addCart', {
             method: "POST",
             headers: { "Content-Type": "application/json" },

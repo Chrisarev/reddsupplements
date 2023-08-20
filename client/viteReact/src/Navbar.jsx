@@ -37,7 +37,7 @@ const Navbar = () => {
             setCart2(prev => arr)
             console.log(cart2)
         })
-    }, [])
+    }, [cart2])
     
     const logOutFunction = () => {
         localStorage.removeItem('username')

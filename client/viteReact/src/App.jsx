@@ -24,7 +24,7 @@ function App() {
             <Route path="/protein" element={<Protein />}></Route>
             <Route path="/addProduct" element={<AddProduct />}></Route>
             <Route path="/category/:category" element={<ProductsGrid />}></Route>
-            <Route path="/product/:prodID" cart2={cart2} setCart2={setCart2} element={<ProductShow />}></Route>
+            <Route path="/product/:prodID" element={<ProductShow />}></Route>
             <Route path="/signup" element={<Signup />}></Route>
             <Route path="/login" element={<Login />}></Route>
             <Route path="/checkout" element={<Checkout />}></Route>

@@ -49,7 +49,8 @@ const ProductShow = () => {
         }).then((response) => {
             if (response.status == 204) {
                 console.log('added to cart')
-                setCart2(prev => cart2);
+                let temp = cart2;
+                setCart2(prev => temp);
                 setIsPending(false);
                 setCartAddStatus(true);
                 return response;

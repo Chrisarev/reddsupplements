@@ -49,7 +49,7 @@ const ProductShow = () => {
         }).then((response) => {
             if (response.status == 204) {
                 console.log('added to cart')
-                setCart2({cart2: this.state.cart2.concat(product)})
+                setCart2({cart2: cart2.concat(product)})
                 setIsPending(false);
                 setCartAddStatus(true);
                 return response;

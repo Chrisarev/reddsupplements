@@ -4,12 +4,15 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useRef } from 'react';
+import { useContext } from 'react';
+import { CartContext } from './CartContext';
+
 const Navbar = () => {
     const [username1, setUsername1] = useState('username');
     /*const [logoutString, setlogoutString] = useState('')*/
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [cart, setCart] = useState([]);
-
+    const {cart2, setCart2} = useContext(CartContext); 
     ///sets username inside of navbar and logout if user has logged in
     useEffect(() => {
         let varr = localStorage.getItem('username');
@@ -23,7 +26,7 @@ const Navbar = () => {
         }).then((response) => {
             if (response.status == 401) {
                 setIsLoggedIn(false);
-                setCart('');
+                setCart2('');
                 return response;
             } else {
                 setIsLoggedIn(true)
@@ -31,7 +34,7 @@ const Navbar = () => {
             }
         }).then((data) => {
             let arr = data[0].products;
-            setCart(prev => arr)
+            setCart2(prev => arr)
         })
     }, [])
     
@@ -99,9 +102,9 @@ const Navbar = () => {
                         </svg>
                     </div>
                 }
-                {cart.length > 0 &&
+                {cart2.length > 0 &&
                     <div className={`${styles.dropDown} ${styles.cartDropDown}`}>
-                        {cart.map((product) => (
+                        {cart2.map((product) => (
                             <div className={styles.cartProduct}>
                                 <Link to="/">{product.productTitle}</Link>
                                 <div className={styles.productQuantity}>Qty x{product.quantity}</div>

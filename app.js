@@ -186,7 +186,7 @@ app.post('/api/login', passport.authenticate('local', { keepSessionInfo: true })
 /* attempting to logOut for existing user*/
 app.post('/api/logout', (req, res) => {
     req.logout(function (err) {
-        if (err) { res.json({ attempt: "Failed" }) }
+        if (err) {res.json({ attempt: "Failed" })}
         res.json({ attempt: 'Success' })
     })
 })

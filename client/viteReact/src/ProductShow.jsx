@@ -54,10 +54,11 @@ const ProductShow = () => {
                 temp.quantity = productQuantity;
                 temp.productIMG = product.image;
                 temp.productPrice = product.productPrice;
+                temp._id = prodID; 
                 temp = JSON.stringify(temp); 
                 console.log(temp); 
                 console.log(cart2);
-                setCart2(prev => prev.concat(temp));
+                setCart2([...cart2, temp]);
                 setIsPending(false);
                 setCartAddStatus(true);
                 return response;

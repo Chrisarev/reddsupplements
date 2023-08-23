@@ -11,7 +11,6 @@ import { useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { CartContext } from './CartContext';
 
-
 const ProductShow = () => {
     let navigate = useNavigate();
     const { prodID } = useParams();
@@ -41,7 +40,6 @@ const ProductShow = () => {
         console.log(FD); */
         const data = { productQuantity, prodID }
         setIsPending(true);
-
         fetch('/api/addCart', {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -55,7 +53,6 @@ const ProductShow = () => {
                 temp.productIMG = product.image;
                 temp.productPrice = product.productPrice;
                 temp._id = prodID; 
-                temp = JSON.stringify(temp); 
                 console.log(temp); 
                 console.log(cart2);
                 setCart2([...cart2, temp]);

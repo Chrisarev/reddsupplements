@@ -55,13 +55,13 @@ const Checkout = () => {
                                 <div className={styles.productQuantity}>Qty x{product.quantity}</div>
                             </div>
                             <div className={styles.totalProductPrice}>${product.productPrice.$numberDecimal}</div>
-                            <button className={styles.removeProduct}>X</button>
+                            <button onClick={handleRemove} className={styles.removeProduct}>X</button>
                         </div>
                     ))}
                     <div className={styles.product}>
                         <img className={styles.productIMG} src={goldProtein} alt="" />
                         <div className={styles.productInfo}>
-                            <div className={styles.productTitle}>Gold Whey Protein</div>
+                            <div className={styles.productTitle}>Thavage (Green Crush) Cbum Preworkout for Working Out, Hydration, Mental Focus & Energy - 40 Servings</div>
                             <div className={styles.productQuantity}>Qty x3</div>
                         </div>
                         <div className={styles.totalProductPrice}>$35.00</div>

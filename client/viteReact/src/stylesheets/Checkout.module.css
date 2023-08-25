@@ -62,13 +62,18 @@
 .productTitle{
     font-family: 'Kanit', sans-serif;
     font-weight: 500;
-    font-size: clamp(1rem,1vw + 1rem, 1.2rem);
+    font-size: clamp(0.8rem,0.6vw + 0.6rem, 1.2rem);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp:3;
+    -webkit-box-orient: vertical;
 }
 
 .productQuantity{
     font-family: 'Kanit', sans-serif;
     font-weight: 500;
-    font-size: clamp(1rem,1vw + 1rem, 1.2rem);
+    font-size: clamp(0.8rem,0.6vw + 0.6rem, 1.2rem);
     color:rgb(128, 128, 128);
 }
 
@@ -76,7 +81,7 @@
     padding-top:1rem;
     font-family: 'Kanit', sans-serif;
     font-weight: 500;
-    font-size: clamp(1rem,1vw + 1rem, 1.2rem);
+    font-size: clamp(0.8rem,0.6vw + 0.6rem, 1.2rem);
     padding-right:5rem;
     width:25%;
 }
@@ -156,14 +161,22 @@
         width:100%;
         min-height:auto;
     }
+    .product{
+        height: 8rem;
+    }
     .productTitle{
-        font-size: clamp(0.5rem,1vw + 1rem, 1rem);
-
+        font-size: clamp(0.5rem,0.6vw + 0.6rem, 1rem);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
     }
     .productQuantity{
-        font-size: clamp(0.5rem,1vw + 1rem, 1rem);
+        font-size: clamp(0.5rem,0.6vw + 0.6rem, 1rem);
     }
     .orderSummary{
+        
         width:100%;
         min-height:auto;
     }
@@ -171,13 +184,14 @@
         width:100%;
     }
     .totalProductPrice, .orderSummary .subHeader, .total{
-        font-size: clamp(0.5rem,1vw + 1rem, 1rem);
+        font-size: clamp(0.5rem,0.6vw + 0.6rem, 1rem);
     }
     .removeProduct{
         position:absolute;
     }
     .orderSummary h2{
         margin:1.5rem;
+        
     }
     .orderSummary .subHeader, .total{
         padding-left:3rem;

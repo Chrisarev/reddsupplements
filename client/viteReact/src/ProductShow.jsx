@@ -52,8 +52,8 @@ const ProductShow = () => {
                 temp.quantity = productQuantity;
                 temp.productIMG = product.image;
                 temp.productPrice = product.productPrice;
-                temp._id = prodID; 
-                console.log(temp); 
+                temp._id = prodID;
+                console.log(temp);
                 console.log(cart2);
                 setCart2([...cart2, temp]);
                 setIsPending(false);
@@ -119,7 +119,12 @@ const ProductShow = () => {
                             <h1 className={styles.productTitle}>
                                 {product.productTitle}
                             </h1>
-                            <p className={styles.productPrice}><span>${product.productPrevPrice}</span>${product.productPrice.$numberDecimal}</p>
+                            <p className={styles.productPrice}>
+                                {product.productPrevPrice != '' &&
+                                    <span>${product.productPrevPrice}</span>
+                                }
+                                ${product.productPrice.$numberDecimal}
+                            </p>
                             <p className={styles.productDesc}>{product.productDesc}</p>
                             <form onSubmit={handleFormSubmit}>
                                 <label htmlFor="quantity">Quantity</label>

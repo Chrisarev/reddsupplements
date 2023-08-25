@@ -20,7 +20,7 @@ function App() {
       <div className="App">
         <CartContext.Provider value={{ cart2, setCart2 }}>
           <Routes>
-            <Route path="/" element={<Home />}></Route>
+            <Route exact path="/" element={<Home />}></Route>
             <Route path="/protein" element={<Protein />}></Route>
             <Route path="/addProduct" element={<AddProduct />}></Route>
             <Route path="/category/:category" element={<ProductsGrid />}></Route>

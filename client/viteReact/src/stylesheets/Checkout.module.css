@@ -47,12 +47,16 @@
 .productInfo{
     display:flex;
     flex-direction: column;
-    width:70%;
+    width:50%;
     padding-top:1rem;
 }
 
 .productIMG{
-
+    float: left;
+    width: 150px;
+    object-fit: contain;
+    padding-top:0.5rem;
+    padding-bottom:0.5rem;
 }
 
 .productTitle{
@@ -74,8 +78,20 @@
     font-weight: 500;
     font-size: clamp(1rem,1vw + 1rem, 1.2rem);
     padding-right:5rem;
+    width:25%;
 }
-
+.removeProduct{
+    position:relative;
+    right:0;
+    height:50px;
+    width:50px;
+    align-self: center;
+    border: none;
+    font-size: clamp(1rem,2vw + 2rem, 1.2rem);
+    cursor:pointer;
+    padding-right:1rem;
+    color:rgb(109, 109, 109);
+}
 .orderSummary{
     width:25%;
     min-width:30rem;
@@ -156,6 +172,9 @@
     }
     .totalProductPrice, .orderSummary .subHeader, .total{
         font-size: clamp(0.5rem,1vw + 1rem, 1rem);
+    }
+    .removeProduct{
+        position:absolute;
     }
     .orderSummary h2{
         margin:1.5rem;

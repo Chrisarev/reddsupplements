@@ -36,6 +36,9 @@ const Checkout = () => {
         })
     }, [])
 
+    const handleRemove = () =>{
+        console.log('remove')
+    }
 
     return (
         <div className={styles.panel}>
@@ -52,6 +55,7 @@ const Checkout = () => {
                                 <div className={styles.productQuantity}>Qty x{product.quantity}</div>
                             </div>
                             <div className={styles.totalProductPrice}>${product.productPrice.$numberDecimal}</div>
+                            <button className={styles.removeProduct}>X</button>
                         </div>
                     ))}
                     <div className={styles.product}>
@@ -61,6 +65,25 @@ const Checkout = () => {
                             <div className={styles.productQuantity}>Qty x3</div>
                         </div>
                         <div className={styles.totalProductPrice}>$35.00</div>
+                        <button className={styles.removeProduct}>X</button>
+                    </div>
+                    <div className={styles.product}>
+                        <img className={styles.productIMG} src={goldProtein} alt="" />
+                        <div className={styles.productInfo}>
+                            <div className={styles.productTitle}>Gold Whey Protein</div>
+                            <div className={styles.productQuantity}>Qty x3</div>
+                        </div>
+                        <div className={styles.totalProductPrice}>$35.00</div>
+                        <button className={styles.removeProduct}>X</button>
+                    </div>
+                    <div className={styles.product}>
+                        <img className={styles.productIMG} src={goldProtein} alt="" />
+                        <div className={styles.productInfo}>
+                            <div className={styles.productTitle}>Gold Whey Protein</div>
+                            <div className={styles.productQuantity}>Qty x3</div>
+                        </div>
+                        <div className={styles.totalProductPrice}>$35.00</div>
+                        <button onClick={handleRemove} className={styles.removeProduct}>X</button>
                     </div>
                 </div>
                 <div className={styles.orderSummary}>

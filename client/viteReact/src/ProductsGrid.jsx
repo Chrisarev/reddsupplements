@@ -10,11 +10,10 @@ import goldProtein from './stylesheets/images/goldProtein.jpg'
 import dyna from './stylesheets/images/dymatizeProtein.jpg'
 
 const ProductsGrid = () => {
-    const {category} = useParams();
-    console.log(category);
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
+        const {category} = useParams();
         fetch(`/api/category/${category}`, {
             method: 'GET',
             headers: { "Content-Type": "application/json" }
@@ -24,7 +23,7 @@ const ProductsGrid = () => {
             setProducts(prev => data);
             console.log(products);
         })
-    }, [])
+    }, [category])
 
     return (
         <>

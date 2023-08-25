@@ -11,9 +11,9 @@ import dyna from './stylesheets/images/dymatizeProtein.jpg'
 
 const ProductsGrid = () => {
     const [products, setProducts] = useState([]);
+    const {category} = useParams();
 
     useEffect(() => {
-        const {category} = useParams();
         fetch(`/api/category/${category}`, {
             method: 'GET',
             headers: { "Content-Type": "application/json" }

@@ -36,7 +36,7 @@ const Checkout = () => {
         })
     }, [])
 
-    const handleRemove = () =>{
+    const handleRemove = () => {
         console.log('remove')
     }
 
@@ -49,7 +49,9 @@ const Checkout = () => {
                     <h2 className={styles.subHeader}>Items</h2>
                     {cart.length > 0 && cart.map((product) => (
                         <div className={styles.product}>
-                            <img className={styles.productIMG} src={product.productIMG} alt="" />
+                            <div className={styles.imgHolder}>
+                                <img className={styles.productIMG} src={product.productIMG} alt="" />
+                            </div>
                             <div className={styles.productInfo}>
                                 <div className={styles.productTitle}>{product.productTitle}</div>
                                 <div className={styles.productQuantity}>Qty x{product.quantity}</div>
@@ -59,31 +61,15 @@ const Checkout = () => {
                         </div>
                     ))}
                     <div className={styles.product}>
-                        <img className={styles.productIMG} src={goldProtein} alt="" />
+                        <div className={styles.imgHolder}>
+                            <img className={styles.productIMG} src={goldProtein} alt="" />
+                        </div>
                         <div className={styles.productInfo}>
                             <div className={styles.productTitle}>Thavage (Green Crush) Cbum Preworkout for Working Out, Hydration, Mental Focus & Energy - 40 Servings</div>
                             <div className={styles.productQuantity}>Qty x3</div>
                         </div>
                         <div className={styles.totalProductPrice}>$35.00</div>
                         <button className={styles.removeProduct}>X</button>
-                    </div>
-                    <div className={styles.product}>
-                        <img className={styles.productIMG} src={goldProtein} alt="" />
-                        <div className={styles.productInfo}>
-                            <div className={styles.productTitle}>Gold Whey Protein</div>
-                            <div className={styles.productQuantity}>Qty x3</div>
-                        </div>
-                        <div className={styles.totalProductPrice}>$35.00</div>
-                        <button className={styles.removeProduct}>X</button>
-                    </div>
-                    <div className={styles.product}>
-                        <img className={styles.productIMG} src={goldProtein} alt="" />
-                        <div className={styles.productInfo}>
-                            <div className={styles.productTitle}>Gold Whey Protein</div>
-                            <div className={styles.productQuantity}>Qty x3</div>
-                        </div>
-                        <div className={styles.totalProductPrice}>$35.00</div>
-                        <button onClick={handleRemove} className={styles.removeProduct}>X</button>
                     </div>
                 </div>
                 <div className={styles.orderSummary}>

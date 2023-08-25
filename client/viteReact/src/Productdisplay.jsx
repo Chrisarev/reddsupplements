@@ -17,7 +17,7 @@ const Productdisplay = (props) => {
             console.log(products);
         })
     }, [])
-    
+
 
     return (
         <div className={styles.productsPanel}>
@@ -31,7 +31,12 @@ const Productdisplay = (props) => {
                     <div className={styles.product}>
                         <img src={product.image} alt="productImage" />
                         <h2>{product.productTitle}</h2>
-                        <p><span>${String(product.productPrevPrice)}</span>${product.productPrice.$numberDecimal}</p>
+                        <p>
+                            {product.productPrevPrice != '' &&
+                                <span>${String(product.productPrevPrice)}</span>
+                            }
+                            ${product.productPrice.$numberDecimal}
+                        </p>
                     </div>
                 </Link>
             ))}

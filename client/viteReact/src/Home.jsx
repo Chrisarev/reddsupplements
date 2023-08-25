@@ -70,11 +70,6 @@ const Home = () => {
                     </SwiperSlide>
                     <SwiperSlide>
                         <div className={styles.imageHolder}>
-                            <img src={ghostBanner} alt="" />
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div className={styles.imageHolder}>
                             <img src={cBumBanner} alt="" />
                         </div>
                     </SwiperSlide>
@@ -92,7 +87,7 @@ const Home = () => {
                     onSwiper={(swiper) => console.log(swiper)}
                     onSlideChange={() => console.log('Slide change')}
                 >
-
+ 
                     <SwiperSlide>
                         <Link to='/product/64c99cb5e8909086e1626a1e' className={styles.productHolder}>
                             <div className={styles.imgHolder}>

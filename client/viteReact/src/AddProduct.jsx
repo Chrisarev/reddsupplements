@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import styles from './stylesheets/AddProduct.module.css'
 import axios from "axios";
-
+import Navbar from "./Navbar";
 const AddProduct = () => {
     const [productTitle, setProductTitle] = useState('');
     const [productPrice, setProductPrice] = useState('');
@@ -65,6 +65,7 @@ const AddProduct = () => {
 
     return (
         <>
+            <Navbar />
             <form className={styles.prodForm} onSubmit={handleProductSubmit}>
                 <label htmlFor="productTitle">Product Title</label>
                 <input type="text" name="productTitle" value={productTitle}

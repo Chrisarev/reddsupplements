@@ -39,7 +39,7 @@
 
 .productTitle{
     margin:0;padding:0;
-    font-size: clamp(1rem, 1vw + 1rem, 5rem);
+    font-size: clamp(1rem, 0.8vw + 0.8rem, 4rem);
     color: black;
     font-family: 'Kanit', sans-serif;
     font-weight: 500;

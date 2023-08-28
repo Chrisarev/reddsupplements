@@ -49,6 +49,7 @@
     width:50%;
     padding-top:1rem;
 }
+
 .imgHolder{
     display:flex;
     align-items: center;
@@ -62,6 +63,7 @@
     object-fit: contain;
     padding-top:0.5rem;
     padding-bottom:0.5rem;
+    max-height:100%;
 }
 
 .productTitle{

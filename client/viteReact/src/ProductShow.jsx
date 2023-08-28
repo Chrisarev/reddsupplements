@@ -80,7 +80,8 @@ const ProductShow = () => {
                     </div>
                     <div className={styles.productInfo}>
                         <h1 className={styles.productTitle}>
-                            Test Product to Test
+                            Test Product to Test Test Product to Test Test Product to Test Test Product to Test Test Product to Test 
+                            Test Product to Test Test Product to Test Test Product to Test
                         </h1>
                         <p className={styles.productPrice}><span>$40.00</span>$35.00</p>
                         <p className={styles.productDesc}>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit reprehenderit vitae repellat atque similique officiis natus sunt ipsum unde! Esse, porro ducimus totam iste quaerat natus omnis quos eos sequi!

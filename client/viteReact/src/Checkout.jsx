@@ -51,7 +51,7 @@ const Checkout = () => {
             if (response.status == 204) {
                 console.log('removed product')
                  setCart(prev => {
-                    return prev.filter(product => product._id !== productID)
+                    return prev.filter(product => product._id !== prodID)
                  })
                 return response;
             }

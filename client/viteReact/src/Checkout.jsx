@@ -40,12 +40,13 @@ const Checkout = () => {
         console.log('remove')
     }
 
-    const handleFormSubmit = (productID) => {
-        const prodID = { productID }
+    const handleFormSubmit = (prodID) => {
+        const data = { prodID }
+        console.log(data);
         fetch('/api/removeProduct', {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(prodID)
+            body: JSON.stringify(data)
         }).then((response) => {
             if (response.status == 204) {
                 console.log('removed product')

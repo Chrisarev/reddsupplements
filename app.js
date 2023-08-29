@@ -226,9 +226,7 @@ app.post('/api/removeProduct', async (req, res) => {
         await Cart.findOneAndUpdate({ 'user': req.user.id },
             {
                 $pull: {
-                    products: {
-                        _id: prodID
-                    }
+                    products:prodID
                 }
             }
         )

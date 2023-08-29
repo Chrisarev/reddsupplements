@@ -41,14 +41,7 @@ const Checkout = () => {
     }
 
     const handleFormSubmit = (productID) => {
-        e.preventDefault();
-        /*const FD = new FormData(); 
-        FD.append('productQuantity', productQuantity);
-        FD.append('prodID', prodID);
-        console.log(FD); */
-
         const data = { productID }
-        setIsPending(true);
         fetch('/api/removeProduct', {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -68,7 +61,7 @@ const Checkout = () => {
             return response;
         })
     }
-    
+
     return (
         <div className={styles.panel}>
             <Navbar />

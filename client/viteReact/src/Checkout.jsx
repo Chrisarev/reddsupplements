@@ -40,6 +40,35 @@ const Checkout = () => {
         console.log('remove')
     }
 
+    const handleFormSubmit = (productID) => {
+        e.preventDefault();
+        /*const FD = new FormData(); 
+        FD.append('productQuantity', productQuantity);
+        FD.append('prodID', prodID);
+        console.log(FD); */
+
+        const data = { productID }
+        setIsPending(true);
+        fetch('/api/removeProduct', {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data)
+        }).then((response) => {
+            if (response.status == 204) {
+                console.log('removed product')
+                 setCart(prev => {
+                    return prev.filter(product => product._id !== productID)
+                 })
+                return response;
+            }
+            if (response.status == 500) {
+                console.log('Failed to remove product from cart.')
+                return response;
+            }
+            return response;
+        })
+    }
+    
     return (
         <div className={styles.panel}>
             <Navbar />
@@ -48,7 +77,7 @@ const Checkout = () => {
                     <h1>Checkout</h1>
                     <h2 className={styles.subHeader}>Items</h2>
                     {cart.length > 0 && cart.map((product) => (
-                        <div className={styles.product}>
+                        <div className={styles.product} key={product._id}>
                             <div className={styles.imgHolder}>
                                 <img className={styles.productIMG} src={product.productIMG} alt="" />
                             </div>
@@ -57,7 +86,7 @@ const Checkout = () => {
                                 <div className={styles.productQuantity}>Qty x{product.quantity}</div>
                             </div>
                             <div className={styles.totalProductPrice}>${product.productPrice.$numberDecimal}</div>
-                            <button onClick={handleRemove} className={styles.removeProduct}>X</button>
+                            <button onClick={() => handleFormSubmit(product._id)} className={styles.removeProduct}>X</button>
                         </div>
                     ))}
                     <div className={styles.product}>

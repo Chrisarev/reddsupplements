@@ -186,7 +186,7 @@ app.post('/api/login', passport.authenticate('local', { keepSessionInfo: true })
 /* attempting to logOut for existing user*/
 app.post('/api/logout', (req, res) => {
     req.logout(function (err) {
-        if (err) {res.json({ attempt: "Failed" })}
+        if (err) { res.json({ attempt: "Failed" }) }
         res.json({ attempt: 'Success' })
     })
 })
@@ -216,6 +216,28 @@ app.post('/api/addCart', async (req, res) => {
     } catch (e) {
         console.log('Failed to add to cart')
         res.sendStatus(500);
+    }
+})
+
+app.post('/api/removeProduct', async (req, res) => {
+    try {
+        const { prodID } = req.body;
+        await Cart.findOneAndUpdate({ 'user': req.user.id },
+            {
+                $pull: {
+                    products: {
+                        _id: prodID
+                    }
+                }
+            }
+        )
+        const cart = await Cart.find({ 'user': req.user.id }).populate();
+        console.log("CART AFTER UPDATE: " + cart);
+        res.sendStatus(204);
+    } catch (e) {
+        console.log('Failed to remove item from cart')
+        res.sendStatus(500);
+
     }
 })
 

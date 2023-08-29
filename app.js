@@ -226,9 +226,12 @@ app.post('/api/removeProduct', async (req, res) => {
         await Cart.findOneAndUpdate({ 'user': req.user.id },
             {
                 $pull: {
-                    products:prodID
+                    products:{
+                        _id: prodID
+                    }
                 }
-            }
+            },
+            {'new':true}
         )
         const cart = await Cart.find({ 'user': req.user.id }).populate();
         console.log("CART AFTER UPDATE: " + cart);

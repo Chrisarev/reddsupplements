@@ -2,14 +2,17 @@ import styles from './stylesheets/Checkout.module.css';
 import { useState, useEffect } from 'react';
 import Navbar from './Navbar'
 import goldProtein from './stylesheets/images/goldProtein.jpg'
+import { useContext } from 'react';
+import { CartContext } from './CartContext';
 
 const Checkout = () => {
-    const [cart, setCart] = useState([])
+    /*const [cart, setCart] = useState([])*/
     const [subtotal, setSubtotal] = useState(0);
     const [tax, setTax] = useState(0);
     const [shipping, setShipping] = useState(5);
     const [total, setTotal] = useState(0);
-
+    const {cart, setCart} = useContext(CartContext); 
+    
     useEffect(() => {
         fetch('/api/getCart', {
             method: 'GET',

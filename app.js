@@ -222,6 +222,7 @@ app.post('/api/addCart', async (req, res) => {
 app.post('/api/removeProduct', async (req, res) => {
     try {
         const { prodID } = req.body;
+        console.log('product id in express: ' + prodID)
         await Cart.findOneAndUpdate({ 'user': req.user.id },
             {
                 $pull: {
